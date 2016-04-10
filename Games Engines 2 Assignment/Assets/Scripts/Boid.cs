@@ -12,6 +12,55 @@ public class Boid : MonoBehaviour {
     public float maxSpeed;
     public float maxForce;
 
+    [Header("Seeking")]
+    public bool seekEnabled = false;
+    public Vector3 seekTargetPos;
+
+    [Header("Arriving")]
+    public bool arriveEnabled = false;
+    public Vector3 arriveTargetPos;
+    public float slowingDistance = 15;
+
+    [Header("Fleeing")]
+    public bool fleeEnabled = false;
+    public Vector3 fleeTargetPos;
+    public float fleeRange = 15.0f;
+
+    void Update()
+    {
+        force = Vector3.zero;
+
+        if (seekEnabled)
+        {
+            force += Seek(seekTargetPos);
+        }
+        if (arriveEnabled)
+        {
+            force += Arrive(arriveTargetPos);
+        }
+        if (fleeEnabled)
+        {
+            force += Flee(fleeTargetPos, fleeRange);
+        }
+
+        force = Vector3.ClampMagnitude(force, maxForce);
+
+        Vector3 acceleration = force / mass;
+        velocity += acceleration * Time.deltaTime;
+        velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+        if (velocity.magnitude > float.Epsilon)
+        {
+            transform.forward = velocity;
+        }
+
+        velocity *= (1.0f - damping);
+    }
+
+    public void TurnOffAll()
+    {
+        seekEnabled = arriveEnabled = fleeEnabled = false;
+    }
+
     Vector3 Seek(Vector3 target)
     {
         Vector3 toTarget = target - transform.position;
@@ -52,10 +101,4 @@ public class Boid : MonoBehaviour {
 
         return desiredVelocity - velocity;
     }
-
-    void Update()
-    {
-
-    }
-
 }
