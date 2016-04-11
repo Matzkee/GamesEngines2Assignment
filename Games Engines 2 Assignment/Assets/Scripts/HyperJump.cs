@@ -38,8 +38,8 @@ public class HyperJump : MonoBehaviour {
 
     void Prepare()
     {
-        jumpDirection = Quaternion.LookRotation(hyperJumpPoint.position - transform.position, Vector3.up);
         boid.TurnOffAll();
+        jumpDirection = Quaternion.LookRotation(hyperJumpPoint.position - transform.position, Vector3.up);
     }
 
     void TurnToJump()
@@ -67,6 +67,7 @@ public class HyperJump : MonoBehaviour {
             }
             else
             {
+                // rush forward without adding forces
                 transform.Translate(Vector3.forward * Time.deltaTime * speed);
                 scale *= scaleRatio;
             }
@@ -75,9 +76,12 @@ public class HyperJump : MonoBehaviour {
 
     IEnumerator PrepareToJump()
     {
+        boid.arriveTargetPos = transform.position + transform.forward * speed;
+        boid.arriveEnabled = true;
         // Wait 20 seconds and then jump
         while (!readyToJump)
         {
+
             readyToJump = true;
             yield return new WaitForSeconds(20);
         }

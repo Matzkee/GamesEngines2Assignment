@@ -79,7 +79,7 @@ public class Boid : MonoBehaviour {
 
     public void TurnOffAll()
     {
-        seekEnabled = arriveEnabled = fleeEnabled = formationFollowingEnabled = false;
+        seekEnabled = arriveEnabled = fleeEnabled = formationFollowingEnabled = pursueEnabled = false;
     }
 
     Vector3 Seek(Vector3 target)
