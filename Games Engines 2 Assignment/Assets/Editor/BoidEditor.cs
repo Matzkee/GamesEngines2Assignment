@@ -16,9 +16,9 @@ public class BoidEditor :  Editor{
         
         EditorGUILayout.LabelField("General Information", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        EditorGUILayout.FloatField("Max Speed", boid.maxSpeed);
-        EditorGUILayout.FloatField("Max Force", boid.maxForce);
-        EditorGUILayout.FloatField("Damping", boid.damping);
+        boid.maxSpeed = EditorGUILayout.FloatField("Max Speed", boid.maxSpeed);
+        boid.maxForce = EditorGUILayout.FloatField("Max Force", boid.maxForce);
+        boid.damping = EditorGUILayout.FloatField("Damping", boid.damping);
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Velocity: " + boid.velocity);
         EditorGUILayout.LabelField("Acceleration: " + boid.acceleration);
