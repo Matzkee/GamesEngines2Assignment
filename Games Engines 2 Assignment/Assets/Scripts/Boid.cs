@@ -26,6 +26,15 @@ public class Boid : MonoBehaviour {
     public Vector3 fleeTargetPos;
     public float fleeRange = 15.0f;
 
+    [Header("Formation Following")]
+    public bool formationFollowingEnabled = false;
+    public Vector3 formationPos;
+
+    [Header("Pursue")]
+    public bool pursueEnabled;
+    public GameObject pursueTarget;
+    public Vector3 pursueTargetPos;
+
     void Update()
     {
         force = Vector3.zero;
@@ -42,15 +51,27 @@ public class Boid : MonoBehaviour {
         {
             force += Flee(fleeTargetPos, fleeRange);
         }
+        if (formationFollowingEnabled)
+        {
+            force += Arrive(formationPos);
+        }
+        if (pursueEnabled)
+        {
+            force += Pursue(pursueTarget);
+        }
 
         force = Vector3.ClampMagnitude(force, maxForce);
 
         Vector3 acceleration = force / mass;
         velocity += acceleration * Time.deltaTime;
         velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+        transform.position += velocity * Time.deltaTime;
         if (velocity.magnitude > float.Epsilon)
         {
-            transform.forward = velocity;
+            if (velocity != Vector3.zero)
+            {
+                transform.forward = velocity;
+            }
         }
 
         velocity *= (1.0f - damping);
@@ -58,7 +79,7 @@ public class Boid : MonoBehaviour {
 
     public void TurnOffAll()
     {
-        seekEnabled = arriveEnabled = fleeEnabled = false;
+        seekEnabled = arriveEnabled = fleeEnabled = formationFollowingEnabled = false;
     }
 
     Vector3 Seek(Vector3 target)
@@ -81,7 +102,6 @@ public class Boid : MonoBehaviour {
             return Vector3.zero;
         }
         float ramped = maxSpeed * (distance / slowingDistance);
-
         float clamped = Mathf.Min(ramped, maxSpeed);
         Vector3 desired = clamped * (toTarget / distance);
 
@@ -100,5 +120,15 @@ public class Boid : MonoBehaviour {
         desiredVelocity *= maxSpeed;
 
         return desiredVelocity - velocity;
+    }
+
+    public Vector3 Pursue(GameObject target)
+    {
+        Vector3 toTarget = target.transform.position - transform.position;
+        float lookAhead = toTarget.magnitude / maxSpeed;
+        pursueTargetPos = target.transform.position
+           + (target.GetComponent<Boid>().velocity * lookAhead);
+
+        return Seek(pursueTargetPos);
     }
 }
