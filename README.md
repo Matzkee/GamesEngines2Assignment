@@ -7,7 +7,7 @@
 
 **Scene 1:**
 * Federation ships prepare themselves to battle.
-* There is our planet earth in the background and some of the viper ships flying in formations.
+* There is our planet earth in the background and some of the viper ships flying scattered.
 * The large ships are jumping into hyper speed leaving the sector.
 
 **Scene 2:**	

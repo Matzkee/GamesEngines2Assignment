@@ -159,7 +159,21 @@ Prefab:
       propertyPath: m_Name
       value: Viper (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+    - {fileID: 11485330, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &213851916
@@ -243,6 +257,104 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &423922672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423922673}
+  - 20: {fileID: 423922677}
+  - 124: {fileID: 423922676}
+  - 92: {fileID: 423922675}
+  - 81: {fileID: 423922674}
+  - 114: {fileID: 423922678}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &423922673
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423922672}
+  m_LocalRotation: {x: 0, y: 0.6881648, z: 0, w: 0.7255545}
+  m_LocalPosition: {x: -2829.75, y: 193.51, z: 1162.493}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!81 &423922674
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423922672}
+  m_Enabled: 1
+--- !u!92 &423922675
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423922672}
+  m_Enabled: 1
+--- !u!124 &423922676
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423922672}
+  m_Enabled: 1
+--- !u!20 &423922677
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423922672}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 7000
+  field of view: 80
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+--- !u!114 &423922678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423922672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93d5abb151a2674b879259060cfa5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &489204110 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 109628, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
@@ -262,7 +374,7 @@ MonoBehaviour:
   speed: 6000
   rotationSpeed: 0.2
   scaleRatio: 0.99
---- !u!1001 &578166125
+--- !u!1001 &585986767
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -299,25 +411,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
       propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 19828944, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
-      propertyPath: lengthInSec
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19828944, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
-      propertyPath: InitialModule.startSpeed.minCurve.m_Curve.Array.data[0].value
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 19828944, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
       propertyPath: m_Name
       value: Viper (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11485330, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: hyperJumpPoint
+      value: 
+      objectReference: {fileID: 213851917}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &594453302
@@ -375,7 +492,21 @@ Prefab:
       propertyPath: m_Name
       value: Viper (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+    - {fileID: 11485330, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &605443295
@@ -433,7 +564,21 @@ Prefab:
       propertyPath: m_Name
       value: Viper (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+    - {fileID: 11485330, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &623878634
@@ -473,7 +618,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: hyperJumpPoint
@@ -621,7 +766,21 @@ Prefab:
       propertyPath: m_Name
       value: Viper (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+    - {fileID: 11485330, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &999688043 stripped
@@ -698,28 +857,23 @@ Prefab:
       propertyPath: m_Name
       value: Viper (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11485330, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+    - {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1034399655 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
-  m_PrefabInternal: {fileID: 578166125}
---- !u!114 &1034399656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1034399655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51be1ca6058413248bf9a069a19390c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
-  rotationSpeed: 0.2
-  scaleRatio: 0.99
 --- !u!1 &1206570456
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,93 +934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
---- !u!1 &1309561056
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1309561061}
-  - 20: {fileID: 1309561060}
-  - 92: {fileID: 1309561059}
-  - 124: {fileID: 1309561058}
-  - 81: {fileID: 1309561057}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &1309561057
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1309561056}
-  m_Enabled: 1
---- !u!124 &1309561058
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1309561056}
-  m_Enabled: 1
---- !u!92 &1309561059
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1309561056}
-  m_Enabled: 1
---- !u!20 &1309561060
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1309561056}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.45588237, g: 0.45588237, b: 0.45588237, a: 0.019607844}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
---- !u!4 &1309561061
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1309561056}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!1001 &1355043346
 Prefab:
   m_ObjectHideFlags: 0
@@ -904,25 +972,34 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
       propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 19828944, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
-      propertyPath: lengthInSec
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19828944, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
-      propertyPath: InitialModule.startSpeed.minCurve.m_Curve.Array.data[0].value
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 19828944, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
       propertyPath: m_Name
       value: Viper (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: hyperJumpPoint
+      value: 
+      objectReference: {fileID: 213851917}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485330, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: hyperJumpPoint
+      value: 
+      objectReference: {fileID: 213851917}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1373956841
@@ -979,25 +1056,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1580364744 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
-  m_PrefabInternal: {fileID: 1355043346}
---- !u!114 &1580364745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1580364744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51be1ca6058413248bf9a069a19390c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
-  rotationSpeed: 0.2
-  scaleRatio: 0.99
 --- !u!1 &1755043712 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
@@ -1054,7 +1112,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 19828944, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
       propertyPath: lengthInSec
@@ -1068,7 +1126,21 @@ Prefab:
       propertyPath: InitialModule.startSpeed.scalar
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298694, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11485330, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+    - {fileID: 11417376, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1945857748 stripped

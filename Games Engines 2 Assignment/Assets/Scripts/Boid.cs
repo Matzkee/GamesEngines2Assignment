@@ -73,7 +73,8 @@ public class Boid : MonoBehaviour {
                 transform.forward = velocity;
             }
         }
-
+        // Change the pitch of the sound
+        UpdatePitch();
         velocity *= (1.0f - damping);
     }
 
@@ -130,5 +131,14 @@ public class Boid : MonoBehaviour {
            + (target.GetComponent<Boid>().velocity * lookAhead);
 
         return Seek(pursueTargetPos);
+    }
+
+    public void UpdatePitch()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        if (audio != null && audio.clip != null)
+        {
+            audio.pitch = velocity.magnitude / maxSpeed + 0.5f;
+        }
     }
 }

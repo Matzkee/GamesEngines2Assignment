@@ -73,6 +73,7 @@ GameObject:
   - 4: {fileID: 433164}
   - 33: {fileID: 3381016}
   - 23: {fileID: 2356302}
+  - 64: {fileID: 6415754}
   m_Layer: 0
   m_Name: colmftr1co
   m_TagString: Untagged
@@ -104,6 +105,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 456674}
   - 114: {fileID: 11432698}
+  - 82: {fileID: 8298694}
+  - 114: {fileID: 11417376}
+  - 114: {fileID: 11485330}
   m_Layer: 0
   m_Name: Viper
   m_TagString: Untagged
@@ -293,6 +297,92 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163620}
   m_Mesh: {fileID: 4300000, guid: 06c2e417736a848488476c0258e0db30, type: 3}
+--- !u!64 &6415754
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 06c2e417736a848488476c0258e0db30, type: 3}
+--- !u!82 &8298694
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188674}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f1d59d118c5c7e6449725ac381d76b32, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 50
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!108 &10815956
 Light:
   m_ObjectHideFlags: 1
@@ -392,6 +482,21 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11417376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51be1ca6058413248bf9a069a19390c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hyperJumpPoint: {fileID: 0}
+  speed: 1500
+  rotationSpeed: 0.2
+  scaleRatio: 0.99
 --- !u!114 &11432698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,7 +512,7 @@ MonoBehaviour:
   acceleration: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   mass: 1
-  damping: 0
+  damping: 0.1
   maxSpeed: 20
   maxForce: 20
   seekEnabled: 0
@@ -423,6 +528,21 @@ MonoBehaviour:
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &11485330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51be1ca6058413248bf9a069a19390c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hyperJumpPoint: {fileID: 0}
+  speed: 1500
+  rotationSpeed: 0.2
+  scaleRatio: 0.99
 --- !u!198 &19828944
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -430,7 +550,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193906}
   serializedVersion: 2
-  lengthInSec: 5
+  lengthInSec: 3
   startDelay:
     scalar: 0
     maxCurve:
@@ -512,7 +632,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 2
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
