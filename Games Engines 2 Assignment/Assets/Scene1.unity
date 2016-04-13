@@ -85,6 +85,34 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &105794429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 105794430}
+  m_Layer: 0
+  m_Name: CameraSpots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &105794430
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105794429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2006461220}
+  m_Father: {fileID: 815286017}
+  m_RootOrder: 2
 --- !u!1 &107293743 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
@@ -283,12 +311,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 423922672}
-  m_LocalRotation: {x: 0, y: 0.6881648, z: 0, w: 0.7255545}
-  m_LocalPosition: {x: -2829.75, y: 193.51, z: 1162.493}
+  m_LocalRotation: {x: 0, y: 0.7549386, z: 0, w: 0.65579545}
+  m_LocalPosition: {x: -2834.4807, y: 194.2, z: 1132.9037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!81 &423922674
 AudioListener:
   m_ObjectHideFlags: 0
@@ -692,6 +720,10 @@ MonoBehaviour:
   speed: 1500
   rotationSpeed: 0.2
   scaleRatio: 0.99
+--- !u!4 &815286017 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 456674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+  m_PrefabInternal: {fileID: 1813292695}
 --- !u!1 &833764198 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 109628, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
@@ -1162,3 +1194,30 @@ MonoBehaviour:
   speed: 1500
   rotationSpeed: 0.2
   scaleRatio: 0.99
+--- !u!1 &2006461219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2006461220}
+  m_Layer: 0
+  m_Name: CameraSpot1
+  m_TagString: Camera-spot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2006461220
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2006461219}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 1.5, z: -7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 105794430}
+  m_RootOrder: 0
