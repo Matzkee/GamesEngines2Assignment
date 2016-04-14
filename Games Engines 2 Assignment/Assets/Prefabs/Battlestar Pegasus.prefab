@@ -105,7 +105,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 411160}
   - 114: {fileID: 11428662}
-  - 114: {fileID: 11476664}
   m_Layer: 0
   m_Name: Battlestar Pegasus
   m_TagString: Untagged
@@ -4137,10 +4136,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119564}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_Mesh: {fileID: 4300006, guid: fbbe7330ee3f7ea439269b2a1c0a134d, type: 3}
 --- !u!64 &6447192
 MeshCollider:
@@ -4149,10 +4148,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178358}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_Mesh: {fileID: 4300006, guid: fbbe7330ee3f7ea439269b2a1c0a134d, type: 3}
 --- !u!108 &10810426
 Light:
@@ -4482,21 +4481,6 @@ MonoBehaviour:
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
---- !u!114 &11476664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51be1ca6058413248bf9a069a19390c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hyperJumpPoint: {fileID: 0}
-  speed: 6000
-  rotationSpeed: 0.2
-  scaleRatio: 0.99
 --- !u!198 &19803950
 ParticleSystem:
   m_ObjectHideFlags: 1

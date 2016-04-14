@@ -166,7 +166,6 @@ GameObject:
   - 4: {fileID: 456674}
   - 114: {fileID: 11432698}
   - 82: {fileID: 8298694}
-  - 114: {fileID: 11436070}
   m_Layer: 0
   m_Name: Viper
   m_TagString: Untagged
@@ -443,10 +442,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163620}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 06c2e417736a848488476c0258e0db30, type: 3}
 --- !u!82 &8298694
 AudioSource:
@@ -652,21 +651,6 @@ MonoBehaviour:
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
---- !u!114 &11436070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51be1ca6058413248bf9a069a19390c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hyperJumpPoint: {fileID: 0}
-  speed: 1500
-  rotationSpeed: 0.2
-  scaleRatio: 0.99
 --- !u!198 &19828944
 ParticleSystem:
   m_ObjectHideFlags: 1
