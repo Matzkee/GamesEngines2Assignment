@@ -16,6 +16,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &122876
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 481496}
+  m_Layer: 0
+  m_Name: CameraSpot1
+  m_TagString: Camera-spot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &135984
 GameObject:
   m_ObjectHideFlags: 1
@@ -28,6 +43,21 @@ GameObject:
   m_Layer: 0
   m_Name: Engine 1
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &140944
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 443330}
+  m_Layer: 0
+  m_Name: CameraSpot3
+  m_TagString: Camera-spot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,6 +89,36 @@ GameObject:
   m_Layer: 0
   m_Name: Viper_Mk_II
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &151304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 436408}
+  m_Layer: 0
+  m_Name: CameraSpots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &155264
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450756}
+  m_Layer: 0
+  m_Name: CameraSpot4
+  m_TagString: Camera-spot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +166,7 @@ GameObject:
   - 4: {fileID: 456674}
   - 114: {fileID: 11432698}
   - 82: {fileID: 8298694}
-  - 114: {fileID: 11417376}
-  - 114: {fileID: 11485330}
+  - 114: {fileID: 11436070}
   m_Layer: 0
   m_Name: Viper
   m_TagString: Untagged
@@ -126,6 +185,21 @@ GameObject:
   m_Layer: 0
   m_Name: skp103E
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &193480
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 496652}
+  m_Layer: 0
+  m_Name: CameraSpot2
+  m_TagString: Camera-spot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,6 +233,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 465970}
   m_RootOrder: 0
+--- !u!4 &436408
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 481496}
+  - {fileID: 496652}
+  - {fileID: 443330}
+  - {fileID: 450756}
+  m_Father: {fileID: 456674}
+  m_RootOrder: 2
+--- !u!4 &443330
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140944}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: 2.5, y: 1.5, z: 9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436408}
+  m_RootOrder: 2
 --- !u!4 &447074
 Transform:
   m_ObjectHideFlags: 1
@@ -170,6 +272,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 476480}
+  m_RootOrder: 3
+--- !u!4 &450756
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155264}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: -2.5, y: 1.5, z: 9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436408}
   m_RootOrder: 3
 --- !u!4 &456674
 Transform:
@@ -183,6 +297,7 @@ Transform:
   m_Children:
   - {fileID: 496316}
   - {fileID: 476480}
+  - {fileID: 436408}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &459288
@@ -250,6 +365,18 @@ Transform:
   - {fileID: 447074}
   m_Father: {fileID: 456674}
   m_RootOrder: 1
+--- !u!4 &481496
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 1.5, z: -7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436408}
+  m_RootOrder: 0
 --- !u!4 &496316
 Transform:
   m_ObjectHideFlags: 1
@@ -263,6 +390,18 @@ Transform:
   - {fileID: 465970}
   m_Father: {fileID: 456674}
   m_RootOrder: 0
+--- !u!4 &496652
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 1.5, z: -7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436408}
+  m_RootOrder: 1
 --- !u!23 &2356302
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -482,21 +621,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11417376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51be1ca6058413248bf9a069a19390c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hyperJumpPoint: {fileID: 0}
-  speed: 1500
-  rotationSpeed: 0.2
-  scaleRatio: 0.99
 --- !u!114 &11432698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -513,8 +637,8 @@ MonoBehaviour:
   force: {x: 0, y: 0, z: 0}
   mass: 1
   damping: 0.1
-  maxSpeed: 20
-  maxForce: 20
+  maxSpeed: 100
+  maxForce: 100
   seekEnabled: 0
   seekTargetPos: {x: 0, y: 0, z: 0}
   arriveEnabled: 0
@@ -528,7 +652,7 @@ MonoBehaviour:
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
---- !u!114 &11485330
+--- !u!114 &11436070
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

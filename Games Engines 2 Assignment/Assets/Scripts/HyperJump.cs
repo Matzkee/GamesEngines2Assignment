@@ -9,6 +9,7 @@ public class HyperJump : MonoBehaviour {
     Boid boid;
     public float speed = 200;
     public float rotationSpeed = 5;
+    public float jumpDelay = 20;
 
     bool readyToJump;
 
@@ -83,7 +84,7 @@ public class HyperJump : MonoBehaviour {
         {
 
             readyToJump = true;
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(jumpDelay);
         }
         Prepare();
         // Start turning into jump direction
