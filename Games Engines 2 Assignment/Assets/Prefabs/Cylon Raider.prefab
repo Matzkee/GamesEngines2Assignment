@@ -25,7 +25,10 @@ GameObject:
   - 4: {fileID: 498462}
   - 33: {fileID: 3363704}
   - 23: {fileID: 2392634}
-  - 64: {fileID: 6449404}
+  - 65: {fileID: 6545280}
+  - 65: {fileID: 6548414}
+  - 65: {fileID: 6529004}
+  - 65: {fileID: 6535814}
   m_Layer: 0
   m_Name: cylmftr1co#1
   m_TagString: Untagged
@@ -149,18 +152,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136970}
   m_Mesh: {fileID: 4300000, guid: 72207437ce0c0e941a21fd5cabb605f4, type: 3}
---- !u!64 &6449404
-MeshCollider:
+--- !u!65 &6529004
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136970}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 72207437ce0c0e941a21fd5cabb605f4, type: 3}
+  m_Size: {x: 1.1504369, y: 0.36659193, z: 7.367106}
+  m_Center: {x: -1.7709601, y: -0.7856158, z: 0.3903196}
+--- !u!65 &6535814
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1504369, y: 0.36659193, z: 7.367106}
+  m_Center: {x: 1.77096, y: -0.7856158, z: 0.3903196}
+--- !u!65 &6545280
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.72663856, y: 0.9454403, z: 3.4260063}
+  m_Center: {x: -0.0023302436, y: -0.54879415, z: 2.372764}
+--- !u!65 &6548414
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.491976, y: 0.45445037, z: 2.3120422}
+  m_Center: {x: 0.03701365, y: -0.72294354, z: 2.552246}
 --- !u!114 &11461606
 MonoBehaviour:
   m_ObjectHideFlags: 1
