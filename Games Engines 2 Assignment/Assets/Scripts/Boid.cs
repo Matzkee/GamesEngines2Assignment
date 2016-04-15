@@ -28,6 +28,7 @@ public class Boid : MonoBehaviour {
 
     [Header("Formation Following")]
     public bool formationFollowingEnabled = false;
+    public GameObject formationTarget;
     public Vector3 formationPos;
 
     [Header("Pursue")]
@@ -53,7 +54,7 @@ public class Boid : MonoBehaviour {
         }
         if (formationFollowingEnabled)
         {
-            force += Arrive(formationPos);
+            force += Arrive(formationTarget.transform.position);
         }
         if (pursueEnabled)
         {

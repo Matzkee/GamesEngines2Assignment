@@ -1,15 +1,17 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿public abstract class State
+{
 
-public class State : MonoBehaviour {
+    public FSM owner;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public State(FSM owner)
+    {
+        this.owner = owner;
+    }
+
+    public abstract string Description();
+    public abstract void Enter();
+    public abstract void Update();
+    public abstract void Exit();
+
 }
+
