@@ -88,8 +88,8 @@ public class Boid : MonoBehaviour {
 
     Vector3 Formation(GameObject leader, Vector3 offset) {
         if (leader != null && formationOffset != Vector3.zero) {
-            formationOffset = leader.transform.position + offset;
-            return Arrive(formationOffset);
+            formationTarget = leader.transform.position + offset;
+            return Arrive(formationTarget);
         }
         else {
             return Vector3.zero;

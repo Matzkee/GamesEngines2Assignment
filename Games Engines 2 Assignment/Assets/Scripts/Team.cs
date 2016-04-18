@@ -20,7 +20,9 @@ public class Team {
         prefab = _prefab;
         mothership = _mothership;
 
+        squadmates = new List<GameObject>();
         MakePyramidFormation();
+        MakeTeam();
     }
 
     void MakeTeam() {
@@ -39,7 +41,9 @@ public class Team {
             FSM squadMachine = squadmate.AddComponent<FSM>();
             squadMachine.motherShip = mothership.transform;
             squadMachine.formationSpot = formation[i - 1];
+            squadMachine.captainShip = captain;
             squadmate.name = "Squadmate " + i;
+            squadmates.Add(squadmate);
             squadmate.SetActive(false);
         }
     }

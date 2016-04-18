@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 463970}
   m_Layer: 8
   m_Name: Spawn 3
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ GameObject:
   - 4: {fileID: 443078}
   m_Layer: 8
   m_Name: Spawn 1
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ GameObject:
   - 4: {fileID: 403516}
   m_Layer: 8
   m_Name: Spawn 2
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

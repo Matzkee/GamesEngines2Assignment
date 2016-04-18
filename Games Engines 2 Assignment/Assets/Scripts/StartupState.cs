@@ -31,7 +31,7 @@ public class StartupState : State
 
     public override void Update()
     {
-        if (Vector3.Distance(owner.transform.position, liftOff) <= 1.0f)
+        if (Vector3.Distance(owner.transform.position, liftOff) <= 5.0f)
         {
             owner.ready = true;
         }

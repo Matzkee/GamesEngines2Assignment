@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 411160}
   - 114: {fileID: 11428662}
+  - 114: {fileID: 11477974}
   m_Layer: 8
   m_Name: Battlestar Pegasus
   m_TagString: Untagged
@@ -154,7 +155,7 @@ GameObject:
   - 4: {fileID: 411718}
   m_Layer: 8
   m_Name: SpawnPointC
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -704,7 +705,7 @@ GameObject:
   - 4: {fileID: 450616}
   m_Layer: 8
   m_Name: SpawnPointD
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,7 +770,7 @@ GameObject:
   - 4: {fileID: 447928}
   m_Layer: 8
   m_Name: SpawnPointB
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1204,7 +1205,7 @@ GameObject:
   - 4: {fileID: 466010}
   m_Layer: 8
   m_Name: SpawnPointA
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4561,11 +4562,30 @@ MonoBehaviour:
   fleeTargetPos: {x: 0, y: 0, z: 0}
   fleeRange: 15
   formationFollowingEnabled: 0
-  formationTarget: {fileID: 0}
-  formationPos: {x: 0, y: 0, z: 0}
+  formationLeader: {fileID: 0}
+  formationOffset: {x: 0, y: 0, z: 0}
+  formationTarget: {x: 0, y: 0, z: 0}
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
+  patrolEnabled: 0
+  patrolTransform: {fileID: 0}
+  patrolRadius: 0
+  patrolTarget: {x: 0, y: 0, z: 0}
+--- !u!114 &11477974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2daf321c4355d49b7aa53fa09196e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 0}
+  teams: 3
+  teamSize: 10
 --- !u!198 &19803950
 ParticleSystem:
   m_ObjectHideFlags: 1

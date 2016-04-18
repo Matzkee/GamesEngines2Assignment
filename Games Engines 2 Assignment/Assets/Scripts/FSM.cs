@@ -43,9 +43,14 @@ public class FSM : MonoBehaviour {
     }
 
     IEnumerator StartUp() {
+
+        // Initially wait a second in case other objects want to change this one
+        yield return new WaitForSeconds(1);
+
         SwitchState(new StartupState(this));
 
         while (!ready) {
+            // Wait few seconds until the ship has lift of
             yield return new WaitForSeconds(5);
         }
         if (isCaptain) {
