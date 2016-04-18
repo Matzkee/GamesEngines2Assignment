@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boid : MonoBehaviour {
+public class Boid : MonoBehaviour
+{
 
     public Vector3 velocity;
     public Vector3 acceleration;
@@ -28,13 +29,20 @@ public class Boid : MonoBehaviour {
 
     [Header("Formation Following")]
     public bool formationFollowingEnabled = false;
-    public GameObject formationTarget;
-    public Vector3 formationPos;
+    public GameObject formationLeader;
+    public Vector3 formationOffset = Vector3.zero;
+    public Vector3 formationTarget;
 
     [Header("Pursue")]
     public bool pursueEnabled;
     public GameObject pursueTarget;
     public Vector3 pursueTargetPos;
+
+    [Header("Patrolling")]
+    public bool patrolEnabled;
+    public Transform patrolTransform;
+    public float patrolRadius;
+    public Vector3 patrolTarget = Vector3.zero;
 
     void Update()
     {
@@ -54,11 +62,15 @@ public class Boid : MonoBehaviour {
         }
         if (formationFollowingEnabled)
         {
-            force += Arrive(formationTarget.transform.position);
+            force += Formation(formationLeader, formationOffset);
         }
         if (pursueEnabled)
         {
             force += Pursue(pursueTarget);
+        }
+        if (patrolEnabled)
+        {
+            force += Patrol();
         }
 
         force = Vector3.ClampMagnitude(force, maxForce);
@@ -81,7 +93,49 @@ public class Boid : MonoBehaviour {
 
     public void TurnOffAll()
     {
-        seekEnabled = arriveEnabled = fleeEnabled = formationFollowingEnabled = pursueEnabled = false;
+        seekEnabled = arriveEnabled = fleeEnabled =
+            formationFollowingEnabled = patrolEnabled = pursueEnabled = false;
+    }
+
+    Vector3 Formation(GameObject leader, Vector3 offset)
+    {
+        if (leader != null && formationOffset != Vector3.zero)
+        {
+            formationOffset = leader.transform.position + offset;
+            return Arrive(formationOffset);
+        }
+        else
+        {
+            return Vector3.zero;
+        }
+    }
+
+    Vector3 Patrol()
+    {
+        if (patrolTarget == Vector3.zero)
+        {
+            patrolTarget = MakeNextWaypoint();
+        }
+        if (Vector3.Distance(patrolTarget, transform.position) < 1.0f)
+        {
+            patrolTarget = MakeNextWaypoint();
+        }
+        return Seek(patrolTarget);
+    }
+
+    Vector3 MakeNextWaypoint()
+    {
+        if (patrolTransform != null)
+        {
+            float angle = Random.Range(0, 360);
+            float x = patrolTransform.position.x + (patrolRadius * Mathf.Cos(angle * Mathf.Deg2Rad));
+            float y = patrolTransform.position.z + (patrolRadius * Mathf.Sin(angle * Mathf.Deg2Rad));
+            return new Vector3(x, 0, y);
+        }
+        else
+        {
+            return Vector3.zero;
+        }
     }
 
     Vector3 Seek(Vector3 target)

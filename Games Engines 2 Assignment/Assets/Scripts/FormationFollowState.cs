@@ -3,10 +3,8 @@ using System.Collections;
 using System;
 
 public class FormationFollowState : State {
-
     public FormationFollowState(FSM owner):base(owner)
     {
-
     }
 
     public override string Description()
@@ -16,16 +14,17 @@ public class FormationFollowState : State {
 
     public override void Enter()
     {
-        throw new NotImplementedException();
+        owner.GetComponent<Boid>().formationLeader = owner.captainShip;
+        owner.GetComponent<Boid>().formationOffset = owner.formationSpot;
+        owner.GetComponent<Boid>().formationFollowingEnabled = true;
     }
 
     public override void Exit()
     {
-        throw new NotImplementedException();
+        owner.GetComponent<Boid>().formationFollowingEnabled = false;
     }
 
     public override void Update()
     {
-        throw new NotImplementedException();
     }
 }

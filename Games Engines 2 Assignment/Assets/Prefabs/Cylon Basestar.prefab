@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 481340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylon Basestar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 499392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: skp3C8F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - 33: {fileID: 3326720}
   - 23: {fileID: 2323264}
   - 64: {fileID: 6450240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cylbstr1co#2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 431440}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylon_Basestar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 427498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}

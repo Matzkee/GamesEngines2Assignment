@@ -65,7 +65,7 @@ public class BoidEditor :  Editor{
         if (boid.formationFollowingEnabled)
         {
             EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Formation position: " + boid.formationPos);
+            EditorGUILayout.LabelField("Formation position: " + boid.formationTarget);
         }
         EditorGUILayout.EndVertical();
 
@@ -77,6 +77,17 @@ public class BoidEditor :  Editor{
         {
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Pursuing target position: " + boid.pursueTargetPos);
+        }
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.BeginVertical("Box");
+        EditorGUILayout.BeginHorizontal();
+        boid.patrolEnabled = GUILayout.Toggle(boid.patrolEnabled, "Patrolling", EditorStyles.radioButton);
+        EditorGUILayout.EndHorizontal();
+        if (boid.patrolEnabled)
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Patrolling target: " + boid.patrolTarget);
         }
         EditorGUILayout.EndVertical();
     }
