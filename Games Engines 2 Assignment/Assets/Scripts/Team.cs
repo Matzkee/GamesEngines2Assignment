@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Team{
+public class Team {
 
     public GameObject captain;
     public List<GameObject> squadmates;
@@ -13,8 +13,7 @@ public class Team{
     Transform spawnPoint;
 
     // Contructor
-    public Team(int _squadSize, float _formationOffset, Transform _spawnpoint, GameObject _prefab, GameObject _mothership)
-    {
+    public Team(int _squadSize, float _formationOffset, Transform _spawnpoint, GameObject _prefab, GameObject _mothership) {
         squadSize = _squadSize;
         formationOffset = _formationOffset;
         spawnPoint = _spawnpoint;
@@ -22,13 +21,11 @@ public class Team{
         mothership = _mothership;
 
         MakePyramidFormation();
-        MakeTeam();
     }
 
-    void MakeTeam()
-    {
+    void MakeTeam() {
         // Add the squad captain
-        captain = (GameObject) GameObject.Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+        captain = (GameObject)GameObject.Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         FSM captainMachine = captain.AddComponent<FSM>();
         captainMachine.isCaptain = true;
         captainMachine.health = 30;
@@ -37,31 +34,28 @@ public class Team{
         captain.name = "Team Captain";
         captain.SetActive(false);
 
-        for (int i = 1; i < squadSize; i++)
-        {
+        for (int i = 1; i < squadSize; i++) {
             GameObject squadmate = (GameObject)GameObject.Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
             FSM squadMachine = squadmate.AddComponent<FSM>();
             squadMachine.motherShip = mothership.transform;
-            squadmate.name = "Squadmate "+i;
+            squadMachine.formationSpot = formation[i - 1];
+            squadmate.name = "Squadmate " + i;
             squadmate.SetActive(false);
         }
     }
 
-    public void MakePyramidFormation()
-    {
+    public void MakePyramidFormation() {
         formation = new List<Vector3>();
         int rowCount = 1;
 
-        while (formation.Count < squadSize)
-        {
+        while (formation.Count < squadSize) {
             Vector3 nextRow = new Vector3(-formationOffset * rowCount, 0, -formationOffset * rowCount);
             if (formation.Count < squadSize)
                 formation.Add(nextRow);
             else
                 break;
             Vector3 currentOffset = new Vector3(formationOffset * 2, 0, 0);
-            for (int i = 1; i <= rowCount; i++)
-            {
+            for (int i = 1; i <= rowCount; i++) {
                 if (formation.Count < squadSize)
                     formation.Add(nextRow + (currentOffset * i));
                 else

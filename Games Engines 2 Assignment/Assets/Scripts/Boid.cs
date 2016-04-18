@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boid : MonoBehaviour
-{
+public class Boid : MonoBehaviour {
 
     public Vector3 velocity;
     public Vector3 acceleration;
@@ -44,32 +43,25 @@ public class Boid : MonoBehaviour
     public float patrolRadius;
     public Vector3 patrolTarget = Vector3.zero;
 
-    void Update()
-    {
+    void Update() {
         force = Vector3.zero;
 
-        if (seekEnabled)
-        {
+        if (seekEnabled) {
             force += Seek(seekTargetPos);
         }
-        if (arriveEnabled)
-        {
+        if (arriveEnabled) {
             force += Arrive(arriveTargetPos);
         }
-        if (fleeEnabled)
-        {
+        if (fleeEnabled) {
             force += Flee(fleeTargetPos, fleeRange);
         }
-        if (formationFollowingEnabled)
-        {
+        if (formationFollowingEnabled) {
             force += Formation(formationLeader, formationOffset);
         }
-        if (pursueEnabled)
-        {
+        if (pursueEnabled) {
             force += Pursue(pursueTarget);
         }
-        if (patrolEnabled)
-        {
+        if (patrolEnabled) {
             force += Patrol();
         }
 
@@ -79,10 +71,8 @@ public class Boid : MonoBehaviour
         velocity += acceleration * Time.deltaTime;
         velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         transform.position += velocity * Time.deltaTime;
-        if (velocity.magnitude > float.Epsilon)
-        {
-            if (velocity != Vector3.zero)
-            {
+        if (velocity.magnitude > float.Epsilon) {
+            if (velocity != Vector3.zero) {
                 transform.forward = velocity;
             }
         }
@@ -91,69 +81,56 @@ public class Boid : MonoBehaviour
         velocity *= (1.0f - damping);
     }
 
-    public void TurnOffAll()
-    {
+    public void TurnOffAll() {
         seekEnabled = arriveEnabled = fleeEnabled =
             formationFollowingEnabled = patrolEnabled = pursueEnabled = false;
     }
 
-    Vector3 Formation(GameObject leader, Vector3 offset)
-    {
-        if (leader != null && formationOffset != Vector3.zero)
-        {
+    Vector3 Formation(GameObject leader, Vector3 offset) {
+        if (leader != null && formationOffset != Vector3.zero) {
             formationOffset = leader.transform.position + offset;
             return Arrive(formationOffset);
         }
-        else
-        {
+        else {
             return Vector3.zero;
         }
     }
 
-    Vector3 Patrol()
-    {
-        if (patrolTarget == Vector3.zero)
-        {
+    Vector3 Patrol() {
+        if (patrolTarget == Vector3.zero) {
             patrolTarget = MakeNextWaypoint();
         }
-        if (Vector3.Distance(patrolTarget, transform.position) < 1.0f)
-        {
+        if (Vector3.Distance(patrolTarget, transform.position) < 1.0f) {
             patrolTarget = MakeNextWaypoint();
         }
         return Seek(patrolTarget);
     }
 
-    Vector3 MakeNextWaypoint()
-    {
-        if (patrolTransform != null)
-        {
+    Vector3 MakeNextWaypoint() {
+        if (patrolTransform != null) {
             float angle = Random.Range(0, 360);
             float x = patrolTransform.position.x + (patrolRadius * Mathf.Cos(angle * Mathf.Deg2Rad));
             float y = patrolTransform.position.z + (patrolRadius * Mathf.Sin(angle * Mathf.Deg2Rad));
             return new Vector3(x, 0, y);
         }
-        else
-        {
+        else {
             return Vector3.zero;
         }
     }
 
-    Vector3 Seek(Vector3 target)
-    {
+    Vector3 Seek(Vector3 target) {
         Vector3 toTarget = target - transform.position;
         toTarget.Normalize();
         Vector3 desired = toTarget * maxSpeed;
         return desired - velocity;
     }
 
-    public Vector3 Arrive(Vector3 targetPos)
-    {
+    public Vector3 Arrive(Vector3 targetPos) {
         Vector3 toTarget = targetPos - transform.position;
 
         float slowingDistance = 15.0f;
         float distance = toTarget.magnitude;
-        if (distance < 0.5f)
-        {
+        if (distance < 0.5f) {
             velocity = Vector3.zero;
             return Vector3.zero;
         }
@@ -164,12 +141,10 @@ public class Boid : MonoBehaviour
         return desired - velocity;
     }
 
-    public Vector3 Flee(Vector3 targetPos, float range)
-    {
+    public Vector3 Flee(Vector3 targetPos, float range) {
         Vector3 desiredVelocity;
         desiredVelocity = transform.position - targetPos;
-        if (desiredVelocity.magnitude > range)
-        {
+        if (desiredVelocity.magnitude > range) {
             return Vector3.zero;
         }
         desiredVelocity.Normalize();
@@ -178,8 +153,7 @@ public class Boid : MonoBehaviour
         return desiredVelocity - velocity;
     }
 
-    public Vector3 Pursue(GameObject target)
-    {
+    public Vector3 Pursue(GameObject target) {
         Vector3 toTarget = target.transform.position - transform.position;
         float lookAhead = toTarget.magnitude / maxSpeed;
         pursueTargetPos = target.transform.position
@@ -188,11 +162,9 @@ public class Boid : MonoBehaviour
         return Seek(pursueTargetPos);
     }
 
-    public void UpdatePitch()
-    {
+    public void UpdatePitch() {
         AudioSource audio = GetComponent<AudioSource>();
-        if (audio != null && audio.clip != null)
-        {
+        if (audio != null && audio.clip != null) {
             audio.pitch = velocity.magnitude / maxSpeed + 0.5f;
         }
     }
