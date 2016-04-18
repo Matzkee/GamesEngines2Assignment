@@ -50,7 +50,7 @@ public class MothershipSpawner : MonoBehaviour {
     }
 
     void SetupTeams(int numberOfTeams, int sizeOfTeams) {
-
+        GameObject teamList = new GameObject("Teams");
         for (int i = 0; i < numberOfTeams; i++) {
             GameObject teamObject = new GameObject("Team " + i);
             Team newTeam = new Team(sizeOfTeams, formationOffset, spawns[Random.Range(0, spawns.Count)],
@@ -63,6 +63,8 @@ public class MothershipSpawner : MonoBehaviour {
             toSpawn.Push(newTeam.captain);
             newTeam.captain.transform.parent = teamObject.transform;
             teams.Add(newTeam);
+
+            teamObject.transform.parent = teamList.transform;
         }
     }
 }
