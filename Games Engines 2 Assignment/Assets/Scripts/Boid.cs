@@ -2,12 +2,14 @@
 using System.Collections;
 
 public class Boid : MonoBehaviour {
-
+    
     public Vector3 velocity;
     public Vector3 acceleration;
     public Vector3 force;
     public float mass = 1.0f;
     public float damping;
+
+    public bool collisionPriority = false;
 
     public float maxSpeed;
     public float maxForce;
@@ -49,19 +51,19 @@ public class Boid : MonoBehaviour {
         if (seekEnabled) {
             force += Seek(seekTargetPos);
         }
-        if (arriveEnabled) {
+        if (arriveEnabled && !collisionPriority) {
             force += Arrive(arriveTargetPos);
         }
-        if (fleeEnabled) {
+        if (fleeEnabled && !collisionPriority) {
             force += Flee(fleeTargetPos, fleeRange);
         }
-        if (formationFollowingEnabled) {
+        if (formationFollowingEnabled && !collisionPriority) {
             force += Formation(formationLeader, formationOffset);
         }
-        if (pursueEnabled) {
+        if (pursueEnabled && !collisionPriority) {
             force += Pursue(pursueTarget);
         }
-        if (patrolEnabled) {
+        if (patrolEnabled && !collisionPriority) {
             force += Patrol();
         }
 

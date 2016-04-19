@@ -226,6 +226,18 @@ Prefab:
       propertyPath: m_Name
       value: Battlestar Pegasus (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 119564, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
+      propertyPath: m_TagString
+      value: Mothership
+      objectReference: {fileID: 0}
+    - target: {fileID: 178358, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
+      propertyPath: m_TagString
+      value: Mothership
+      objectReference: {fileID: 0}
+    - target: {fileID: 186578, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
+      propertyPath: m_TagString
+      value: Mothership
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
   m_IsPrefabParent: 0

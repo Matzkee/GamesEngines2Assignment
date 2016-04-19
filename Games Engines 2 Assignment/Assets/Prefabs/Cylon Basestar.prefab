@@ -25,7 +25,7 @@ GameObject:
   - 4: {fileID: 481340}
   m_Layer: 8
   m_Name: Cylon Basestar
-  m_TagString: Untagged
+  m_TagString: Mothership
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ GameObject:
   - 4: {fileID: 431440}
   m_Layer: 8
   m_Name: Cylon_Basestar
-  m_TagString: Untagged
+  m_TagString: Mothership
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

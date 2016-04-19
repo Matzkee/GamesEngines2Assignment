@@ -108,7 +108,7 @@ GameObject:
   - 114: {fileID: 11477974}
   m_Layer: 8
   m_Name: Battlestar Pegasus
-  m_TagString: Untagged
+  m_TagString: Mothership
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4551,6 +4551,8 @@ MonoBehaviour:
   force: {x: 0, y: 0, z: 0}
   mass: 1
   damping: 0.1
+  mothershipCollision: 0
+  collisionDistance: 30
   maxSpeed: 50
   maxForce: 50
   seekEnabled: 0
@@ -4584,8 +4586,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 0}
-  teams: 3
+  numberOfTeams: 0
   teamSize: 10
+  spawnTime: 4
+  formationOffset: 10
 --- !u!198 &19803950
 ParticleSystem:
   m_ObjectHideFlags: 1

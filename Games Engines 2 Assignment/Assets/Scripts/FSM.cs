@@ -7,6 +7,7 @@ public class FSM : MonoBehaviour {
     public int health = 10;
     public bool isCaptain = false;
     public float patrolRadius = 1000.0f;
+    public float collisionDistance = 100.0f;
     public GameObject captainShip = null;
     public Vector3 formationSpot;
     public Transform motherShip = null;
@@ -53,6 +54,7 @@ public class FSM : MonoBehaviour {
             // Wait few seconds until the ship has lift of
             yield return new WaitForSeconds(5);
         }
+        StartCoroutine("AvoidMothershipCollision");
         if (isCaptain) {
             SwitchState(new PatrollingState(this));
         }
@@ -60,4 +62,28 @@ public class FSM : MonoBehaviour {
             SwitchState(new FormationFollowState(this));
         }
     }
+    
+    IEnumerator AvoidMothershipCollision() {
+
+        while (true) {
+            Ray forwardRay = new Ray(transform.position, transform.forward.normalized);
+            RaycastHit hit;
+            if (Physics.Raycast(forwardRay, out hit, collisionDistance)) {
+                if (hit.collider.tag == "Mothership") {
+                    GetComponent<Boid>().collisionPriority = true;
+                    GetComponent<Boid>().seekTargetPos = transform.forward + hit.normal * 50.0f;
+                    GetComponent<Boid>().seekEnabled = true;
+                }
+                else {
+                    GetComponent<Boid>().collisionPriority = false;
+                }
+            }
+            else {
+                GetComponent<Boid>().collisionPriority = false;
+            }
+
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+
 }
