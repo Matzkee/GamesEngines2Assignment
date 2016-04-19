@@ -113,7 +113,7 @@ public class Boid : MonoBehaviour {
             float angle = Random.Range(0, 360);
             float x = patrolTransform.position.x + (patrolRadius * Mathf.Cos(angle * Mathf.Deg2Rad));
             float y = patrolTransform.position.z + (patrolRadius * Mathf.Sin(angle * Mathf.Deg2Rad));
-            return new Vector3(x, 0, y);
+            return new Vector3(x, Random.Range(-100, 100), y);
         }
         else {
             return Vector3.zero;
@@ -121,6 +121,7 @@ public class Boid : MonoBehaviour {
     }
 
     Vector3 Seek(Vector3 target) {
+        Debug.DrawLine(transform.position, target);
         Vector3 toTarget = target - transform.position;
         toTarget.Normalize();
         Vector3 desired = toTarget * maxSpeed;

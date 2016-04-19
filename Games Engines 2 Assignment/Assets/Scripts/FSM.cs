@@ -71,18 +71,20 @@ public class FSM : MonoBehaviour {
             if (Physics.Raycast(forwardRay, out hit, collisionDistance)) {
                 if (hit.collider.tag == "Mothership") {
                     GetComponent<Boid>().collisionPriority = true;
-                    GetComponent<Boid>().seekTargetPos = transform.forward + hit.normal * 50.0f;
+                    GetComponent<Boid>().seekTargetPos = hit.point + (hit.normal * 20);
                     GetComponent<Boid>().seekEnabled = true;
                 }
                 else {
+                    GetComponent<Boid>().seekEnabled = false;
                     GetComponent<Boid>().collisionPriority = false;
                 }
             }
             else {
+                GetComponent<Boid>().seekEnabled = false;
                 GetComponent<Boid>().collisionPriority = false;
             }
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
