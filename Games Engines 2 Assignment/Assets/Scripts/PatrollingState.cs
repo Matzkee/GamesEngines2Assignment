@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PatrollingState : State {
 
-    public PatrollingState(FSM owner) : base(owner) {
+    public PatrollingState(FighterStateMachine owner) : base(owner) {
     }
 
     public override string Description() {

@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(Boid))]
-public class FSM : MonoBehaviour {
+public class FighterStateMachine : MonoBehaviour {
 
     public int health = 10;
     public bool isCaptain = false;
@@ -55,12 +55,6 @@ public class FSM : MonoBehaviour {
             yield return new WaitForSeconds(5);
         }
         StartCoroutine("AvoidMothershipCollision");
-        if (isCaptain) {
-            SwitchState(new PatrollingState(this));
-        }
-        else {
-            SwitchState(new FormationFollowState(this));
-        }
     }
     
     IEnumerator AvoidMothershipCollision() {
@@ -97,6 +91,10 @@ public class FSM : MonoBehaviour {
         if (isCaptain) {
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(transform.position, 40);
+        }
+        else {
+            Gizmos.color = new Color(0, 1, 1, 0.5f);
+            Gizmos.DrawWireSphere(transform.position, 10);
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 public class FormationFollowState : State {
-    public FormationFollowState(FSM owner) : base(owner) {
+    public FormationFollowState(FighterStateMachine owner) : base(owner) {
     }
 
     public override string Description() {

@@ -1,9 +1,9 @@
 ﻿public abstract class State
 {
 
-    public FSM owner;
+    public FighterStateMachine owner;
 
-    public State(FSM owner)
+    public State(FighterStateMachine owner)
     {
         this.owner = owner;
     }

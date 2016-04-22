@@ -6,7 +6,7 @@ public class StartupState : State
 {
     float liftOffDistance = 300.0f;
     Vector3 liftOff;
-    public StartupState(FSM owner) : base(owner)
+    public StartupState(FighterStateMachine owner) : base(owner)
     {
     }
 
@@ -34,6 +34,12 @@ public class StartupState : State
         if (Vector3.Distance(owner.transform.position, liftOff) <= 5.0f)
         {
             owner.ready = true;
+            if (owner.isCaptain) {
+                owner.SwitchState(new PatrollingState(owner));
+            }
+            else {
+                owner.SwitchState(new FormationFollowState(owner));
+            }
         }
     }
 }
