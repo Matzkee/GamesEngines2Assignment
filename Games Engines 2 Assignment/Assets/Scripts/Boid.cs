@@ -121,7 +121,6 @@ public class Boid : MonoBehaviour {
     }
 
     Vector3 Seek(Vector3 target) {
-        Debug.DrawLine(transform.position, target);
         Vector3 toTarget = target - transform.position;
         toTarget.Normalize();
         Vector3 desired = toTarget * maxSpeed;
