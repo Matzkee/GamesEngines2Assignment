@@ -70,9 +70,14 @@ public class FSM : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(forwardRay, out hit, collisionDistance)) {
                 if (hit.collider.tag == "Mothership") {
+                    Vector3 toHitpoint = (hit.point - transform.position).normalized;
+                    Vector3 reflectedDir = Vector3.Reflect(toHitpoint, hit.normal);
+                    Vector3 reflectedPos = hit.point + (reflectedDir * 50);
                     GetComponent<Boid>().collisionPriority = true;
-                    GetComponent<Boid>().seekTargetPos = hit.point + (hit.normal * 20);
+                    GetComponent<Boid>().seekTargetPos = reflectedPos;
                     GetComponent<Boid>().seekEnabled = true;
+                    Debug.DrawLine(transform.position, hit.point, Color.green, 2);
+                    Debug.DrawLine(hit.point, reflectedPos, Color.green, 2);
                 }
                 else {
                     GetComponent<Boid>().seekEnabled = false;
@@ -85,6 +90,13 @@ public class FSM : MonoBehaviour {
             }
 
             yield return new WaitForSeconds(1f);
+        }
+    }
+
+    void OnDrawGizmos() {
+        if (isCaptain) {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(transform.position, 40);
         }
     }
 
