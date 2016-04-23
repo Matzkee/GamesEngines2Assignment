@@ -32,6 +32,8 @@ public class MothershipStateMachine : MonoBehaviour {
             GetComponent<Boid>().arriveTargetPos = approachPoint;
             GetComponent<Boid>().arriveEnabled = true;
         }
+
+        StartCoroutine("Attack");
     }
 
     public void SwitchState(State state) {
@@ -61,7 +63,10 @@ public class MothershipStateMachine : MonoBehaviour {
             Vector3 shootTarget = Random.insideUnitSphere * (distance / precisionFactor);
             Transform turret = turrets[Random.Range(0,turrets.Count)];
             turret.LookAt(enemy.transform.position + shootTarget);
-            Instantiate(bullet, turret.position, turret.rotation);
+            GameObject bulletCopy = (GameObject) Instantiate(bullet, turret.position, turret.rotation);
+            bulletCopy.transform.position = turret.position;
+            bulletCopy.transform.rotation = turret.rotation;
+            bulletCopy.GetComponent<LaserMover>().targetTag = enemy.tag;
 
             yield return new WaitForSeconds(Random.Range(minAttackDelay, maxAttackDelay));
         }

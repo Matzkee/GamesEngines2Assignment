@@ -10,7 +10,8 @@ public class LaserMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(transform.forward * Time.deltaTime * speed);
+        Vector3 movement = transform.position + (transform.forward * Time.deltaTime * speed);
+        transform.position = movement;
 	}
 
     void Awake() {

@@ -115,8 +115,8 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 0.6494929, b: 0.20588237, a: 1}
-  m_Intensity: 6
-  m_Range: 10
+  m_Intensity: 8
+  m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -149,7 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806eae93242f3a344b17053b2e7648a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 3
+  damage: 2
   speed: 1000
+  targetTag: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

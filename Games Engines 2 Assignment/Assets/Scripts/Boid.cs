@@ -112,8 +112,8 @@ public class Boid : MonoBehaviour {
         if (patrolTransform != null) {
             float angle = Random.Range(0, 360);
             float x = patrolTransform.position.x + (patrolRadius * Mathf.Cos(angle * Mathf.Deg2Rad));
-            float y = patrolTransform.position.z + (patrolRadius * Mathf.Sin(angle * Mathf.Deg2Rad));
-            return new Vector3(x, Random.Range(-100, 100), y);
+            float z = patrolTransform.position.z + (patrolRadius * Mathf.Sin(angle * Mathf.Deg2Rad));
+            return new Vector3(x, patrolTransform.position.y + Random.Range(-100, 100), z);
         }
         else {
             return Vector3.zero;

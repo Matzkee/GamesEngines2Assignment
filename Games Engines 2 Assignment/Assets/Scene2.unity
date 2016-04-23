@@ -273,6 +273,25 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+--- !u!114 &481977201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 481977199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a464128fffc8f942b2f4f98a4ceb3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  enemy: {fileID: 622305523}
+  isStationery: 0
+  precisionFactor: 50
+  minAttackDelay: 2
+  maxAttackDelay: 5
+  bulletSpeed: 50
+  bullet: {fileID: 185380, guid: 9799e74102c4dc74eade1bd4ec299750, type: 2}
 --- !u!1001 &622305522
 Prefab:
   m_ObjectHideFlags: 0
@@ -294,19 +313,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.20802933
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.37120423
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.026503384
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.90456
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_RootOrder
@@ -323,6 +342,29 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &622305523 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115158, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
+  m_PrefabInternal: {fileID: 622305522}
+--- !u!114 &622305524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 622305523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a464128fffc8f942b2f4f98a4ceb3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  enemy: {fileID: 481977199}
+  isStationery: 1
+  precisionFactor: 50
+  minAttackDelay: 2
+  maxAttackDelay: 5
+  bulletSpeed: 50
+  bullet: {fileID: 185380, guid: 9799e74102c4dc74eade1bd4ec299750, type: 2}
 --- !u!1001 &897925158
 Prefab:
   m_ObjectHideFlags: 0
@@ -413,6 +455,25 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+--- !u!114 &897925161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897925159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a464128fffc8f942b2f4f98a4ceb3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  enemy: {fileID: 1206904465}
+  isStationery: 0
+  precisionFactor: 50
+  minAttackDelay: 2
+  maxAttackDelay: 5
+  bulletSpeed: 50
+  bullet: {fileID: 185380, guid: 9799e74102c4dc74eade1bd4ec299750, type: 2}
 --- !u!1 &1049344930
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,19 +556,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.09447547
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.2168645
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.021091802
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9713904
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_RootOrder
@@ -528,6 +589,29 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1104403967 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115158, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
+  m_PrefabInternal: {fileID: 1104403966}
+--- !u!114 &1104403968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1104403967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a464128fffc8f942b2f4f98a4ceb3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  enemy: {fileID: 1653659507}
+  isStationery: 1
+  precisionFactor: 50
+  minAttackDelay: 2
+  maxAttackDelay: 5
+  bulletSpeed: 50
+  bullet: {fileID: 185380, guid: 9799e74102c4dc74eade1bd4ec299750, type: 2}
 --- !u!1001 &1206904464
 Prefab:
   m_ObjectHideFlags: 0
@@ -549,19 +633,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.09353297
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.8355674
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.15026705
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.52009475
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_RootOrder
@@ -578,6 +662,29 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1206904465 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115158, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
+  m_PrefabInternal: {fileID: 1206904464}
+--- !u!114 &1206904466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1206904465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a464128fffc8f942b2f4f98a4ceb3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  enemy: {fileID: 897925159}
+  isStationery: 1
+  precisionFactor: 50
+  minAttackDelay: 2
+  maxAttackDelay: 5
+  bulletSpeed: 50
+  bullet: {fileID: 185380, guid: 9799e74102c4dc74eade1bd4ec299750, type: 2}
 --- !u!1001 &1653659506
 Prefab:
   m_ObjectHideFlags: 0
@@ -664,3 +771,22 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+--- !u!114 &1653659509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1653659507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a464128fffc8f942b2f4f98a4ceb3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  enemy: {fileID: 1104403967}
+  isStationery: 0
+  precisionFactor: 50
+  minAttackDelay: 2
+  maxAttackDelay: 5
+  bulletSpeed: 50
+  bullet: {fileID: 185380, guid: 9799e74102c4dc74eade1bd4ec299750, type: 2}
