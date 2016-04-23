@@ -7,6 +7,12 @@ public class MothershipStateMachine : MonoBehaviour {
     public GameObject enemy;
     public bool isStationery = true;
 
+    [Header("Shooting options")]
+    public float minAttackDelay = 2;
+    public float maxAttackDelay = 5;
+    public float bulletSpeed = 1000;
+    public GameObject bullet;
+
     [HideInInspector]
     State state = null;
 
@@ -38,4 +44,14 @@ public class MothershipStateMachine : MonoBehaviour {
             state.Update();
         }
     }
+
+    IEnumerator Attack() {
+        while (enemy != null) {
+
+            // Shot in enemy direction with a precision factor
+
+            yield return new WaitForSeconds(Random.Range(minAttackDelay,maxAttackDelay));
+        }
+    }
+
 }

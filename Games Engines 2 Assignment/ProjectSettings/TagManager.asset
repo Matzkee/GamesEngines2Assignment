@@ -7,6 +7,11 @@ TagManager:
   - Camera-spot
   - Mothership
   - SpawnPoint
+  - PlayerBolt
+  - Pegasus
+  - Basestar
+  - Viper
+  - Raider
   layers:
   - Default
   - TransparentFX
