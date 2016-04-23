@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MothershipStateMachine : MonoBehaviour {
 
@@ -8,15 +9,22 @@ public class MothershipStateMachine : MonoBehaviour {
     public bool isStationery = true;
 
     [Header("Shooting options")]
+    public float precisionFactor = 50;
     public float minAttackDelay = 2;
     public float maxAttackDelay = 5;
     public float bulletSpeed = 1000;
     public GameObject bullet;
 
-    [HideInInspector]
+    List<Transform> turrets;
+
     State state = null;
 
     void Start() {
+        // Get positions of turrets
+        turrets = new List<Transform>();
+        foreach (Transform child in transform.FindChild("Turrets")) {
+            turrets.Add(child);
+        }
         // Pick a point at a certain distance if the ship is approaching
         if (!isStationery) {
             Vector3 toTarget = (enemy.transform.position - transform.position).normalized;
@@ -49,8 +57,13 @@ public class MothershipStateMachine : MonoBehaviour {
         while (enemy != null) {
 
             // Shot in enemy direction with a precision factor
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            Vector3 shootTarget = Random.insideUnitSphere * (distance / precisionFactor);
+            Transform turret = turrets[Random.Range(0,turrets.Count)];
+            turret.LookAt(enemy.transform.position + shootTarget);
+            Instantiate(bullet, turret.position, turret.rotation);
 
-            yield return new WaitForSeconds(Random.Range(minAttackDelay,maxAttackDelay));
+            yield return new WaitForSeconds(Random.Range(minAttackDelay, maxAttackDelay));
         }
     }
 
