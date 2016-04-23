@@ -105,7 +105,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 411160}
   - 114: {fileID: 11428662}
-  - 114: {fileID: 11477974}
   m_Layer: 8
   m_Name: Battlestar Pegasus
   m_TagString: Mothership
@@ -124,6 +123,21 @@ GameObject:
   m_Layer: 8
   m_Name: CameraSpot3
   m_TagString: Camera-spot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &111400
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423766}
+  m_Layer: 8
+  m_Name: Turret4
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,6 +309,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &125074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445664}
+  m_Layer: 8
+  m_Name: Turrets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &125324
 GameObject:
   m_ObjectHideFlags: 1
@@ -358,6 +387,21 @@ GameObject:
   - 23: {fileID: 2303632}
   m_Layer: 8
   m_Name: Group#6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &131026
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 442548}
+  m_Layer: 8
+  m_Name: Turret1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,6 +541,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &145540
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460286}
+  m_Layer: 8
+  m_Name: Turret2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &145942
 GameObject:
   m_ObjectHideFlags: 1
@@ -541,6 +600,21 @@ GameObject:
   - 4: {fileID: 467168}
   m_Layer: 8
   m_Name: Engines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &151024
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 417450}
+  m_Layer: 8
+  m_Name: Turret3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1522,6 +1596,7 @@ Transform:
   - {fileID: 418326}
   - {fileID: 467168}
   - {fileID: 434270}
+  - {fileID: 445664}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &411616
@@ -1619,6 +1694,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 461580}
   m_RootOrder: 4
+--- !u!4 &417450
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.37, y: 8.1, z: 703.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445664}
+  m_RootOrder: 2
 --- !u!4 &418326
 Transform:
   m_ObjectHideFlags: 1
@@ -1756,6 +1843,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 461580}
   m_RootOrder: 16
+--- !u!4 &423766
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -40.37, y: 8.1, z: 703.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445664}
+  m_RootOrder: 3
 --- !u!4 &424942
 Transform:
   m_ObjectHideFlags: 1
@@ -1916,6 +2015,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412688}
   m_RootOrder: 12
+--- !u!4 &442548
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -209.8, y: -63.3, z: 297.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445664}
+  m_RootOrder: 0
 --- !u!4 &443304
 Transform:
   m_ObjectHideFlags: 1
@@ -1928,6 +2039,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 461580}
   m_RootOrder: 1
+--- !u!4 &445664
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 442548}
+  - {fileID: 460286}
+  - {fileID: 417450}
+  - {fileID: 423766}
+  m_Father: {fileID: 411160}
+  m_RootOrder: 4
 --- !u!4 &447786
 Transform:
   m_ObjectHideFlags: 1
@@ -2109,6 +2236,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 461580}
   m_RootOrder: 17
+--- !u!4 &460286
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 229.39, y: -63.3, z: 297.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445664}
+  m_RootOrder: 1
 --- !u!4 &461580
 Transform:
   m_ObjectHideFlags: 1
@@ -4551,8 +4690,7 @@ MonoBehaviour:
   force: {x: 0, y: 0, z: 0}
   mass: 1
   damping: 0.1
-  mothershipCollision: 0
-  collisionDistance: 30
+  collisionPriority: 0
   maxSpeed: 50
   maxForce: 50
   seekEnabled: 0
@@ -4574,22 +4712,6 @@ MonoBehaviour:
   patrolTransform: {fileID: 0}
   patrolRadius: 0
   patrolTarget: {x: 0, y: 0, z: 0}
---- !u!114 &11477974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a2daf321c4355d49b7aa53fa09196e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 0}
-  numberOfTeams: 0
-  teamSize: 10
-  spawnTime: 4
-  formationOffset: 10
 --- !u!198 &19803950
 ParticleSystem:
   m_ObjectHideFlags: 1
