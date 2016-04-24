@@ -27,6 +27,5 @@ public class PatrollingState : State {
     }
 
     public override void Update() {
-
     }
 }

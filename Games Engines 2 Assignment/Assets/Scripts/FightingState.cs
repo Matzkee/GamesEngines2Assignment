@@ -25,11 +25,23 @@ public class FightingState : State {
         float distance = Vector3.Distance(owner.transform.position, owner.currentEnemy.transform.position);
         if (distance > 110.0f) {
             owner.EndBattle();
-            owner.SwitchState(new FormationFollowState(owner));
+            if (owner.isCaptain) {
+                owner.SwitchState(new PatrollingState(owner));
+            }
+            else {
+                owner.SwitchState(new FormationFollowState(owner));
+            }
         }
-        if (!owner.currentEnemy.activeInHierarchy) {
-            owner.EndBattle();
-            owner.SwitchState(new FormationFollowState(owner));
+        if (owner.currentEnemy != null) {
+            if (!owner.currentEnemy.activeInHierarchy) {
+                owner.EndBattle();
+                if (owner.isCaptain) {
+                    owner.SwitchState(new PatrollingState(owner));
+                }
+                else {
+                    owner.SwitchState(new FormationFollowState(owner));
+                }
+            }
         }
     }
 }

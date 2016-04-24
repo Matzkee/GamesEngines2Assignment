@@ -12,14 +12,13 @@ public class FighterStateMachine : MonoBehaviour {
     public GameObject captainShip = null;
     public Vector3 formationSpot;
     public GameObject motherShip = null;
-    public string enemyType;
     public GameObject currentEnemy = null;
     public GameObject bulletPrefab;
 
     List<Transform> turrets;
 
     [HideInInspector]
-    public bool ready = false, isAttacking = false, isFighting = false, attackingTarget = false;
+    public bool ready = false, isFighting = false, attackingTarget = false;
     State state = null;
 
     // Use this for initialization
@@ -54,17 +53,30 @@ public class FighterStateMachine : MonoBehaviour {
     }
 
     public void EndBattle() {
-        GameObject.FindGameObjectWithTag("BattleManager").
-            GetComponent<BattlePicker>().RemoveBattle(gameObject, currentEnemy);
+        if (currentEnemy != null) {
+            GameObject.FindGameObjectWithTag("BattleManager").
+                GetComponent<BattlePicker>().RemoveBattle(gameObject, currentEnemy);
+            currentEnemy = null;
+        }
     }
 
     IEnumerator Fight() {
+        // Check every 5 sec if the ship is destroyed
         while (health > 0) {
-            // Check every 5 sec if the ship is destroyed
+            // Check if the ship is attacking
             if (attackingTarget) {
                 Transform turret = turrets[Random.Range(0, turrets.Count)];
+                turret.LookAt(currentEnemy.transform.position);
                 GameObject bulletCopy = (GameObject)Instantiate(bulletPrefab, turret.position, turret.rotation);
                 bulletCopy.GetComponent<LaserMover>().targetTag = currentEnemy.tag;
+            }
+            // Check if the ship is still beeing chased if it is suppossed to be
+            if (!isCaptain && currentEnemy != null && state.Description() == "Patrolling/Defending") {
+                float distance = Vector3.Distance(transform.position, currentEnemy.transform.position);
+                if (distance > 100.0f) {
+                    EndBattle();
+                    SwitchState(new FormationFollowState(this));
+                }
             }
             yield return new WaitForSeconds(3);
         }
@@ -90,7 +102,7 @@ public class FighterStateMachine : MonoBehaviour {
         StartCoroutine("AvoidMothershipCollision");
         StartCoroutine("Fight");
     }
-    
+
     IEnumerator AvoidMothershipCollision() {
 
         while (true) {
@@ -122,11 +134,11 @@ public class FighterStateMachine : MonoBehaviour {
     }
 
     void OnDrawGizmos() {
-        if (isCaptain) {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(transform.position, 40);
+        if (gameObject.tag == "Raider") {
+            Gizmos.color = new Color(1, 0, 1, 0.5f);
+            Gizmos.DrawWireSphere(transform.position, 10);
         }
-        else {
+        if (gameObject.tag == "Viper") {
             Gizmos.color = new Color(0, 1, 1, 0.5f);
             Gizmos.DrawWireSphere(transform.position, 10);
         }
@@ -134,19 +146,10 @@ public class FighterStateMachine : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         // Sphere collider is the detection collider
-        if (other.GetType() == typeof(SphereCollider) && other.gameObject.tag == enemyType) {
+        if (other.GetType() == typeof(SphereCollider) && other.gameObject.tag != gameObject.tag) {
             if (currentEnemy == null && !other.gameObject.GetComponent<FighterStateMachine>().isFighting) {
-                currentEnemy = other.gameObject;
-                BattlePicker battlePicker = 
-                    GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattlePicker>();
-                battlePicker.PickFighterBattle(gameObject, currentEnemy);
-
-                if (isAttacking) {
-                    SwitchState(new FightingState(this));
-                }
-                else {
-                    SwitchState(new FleeingState(this));
-                }
+                BattlePicker battlePicker = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattlePicker>();
+                battlePicker.PickFighterBattle(gameObject, other.gameObject);
             }
         }
     }

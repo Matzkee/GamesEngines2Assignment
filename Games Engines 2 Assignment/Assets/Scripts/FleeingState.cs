@@ -12,21 +12,38 @@ public class FleeingState : State {
     }
 
     public override void Enter() {
-        owner.GetComponent<Boid>().fleeRange = 80;
+        owner.GetComponent<Boid>().fleeRange = 110;
         owner.GetComponent<Boid>().fleeTargetPos = owner.currentEnemy.transform.position;
         owner.GetComponent<Boid>().fleeEnabled = true;
     }
 
     public override void Exit() {
-        throw new NotImplementedException();
+        owner.GetComponent<Boid>().fleeEnabled = false;
     }
 
     public override void Update() {
-        float distance = Vector3.Distance(owner.transform.position, owner.currentEnemy.transform.position);
-        if (distance > 110) {
-            owner.EndBattle();
-            owner.SwitchState(new FormationFollowState(owner));
+        if (owner.currentEnemy != null) {
+            float distance = Vector3.Distance(owner.transform.position, owner.currentEnemy.transform.position);
+            owner.GetComponent<Boid>().fleeTargetPos = owner.currentEnemy.transform.position;
+
+            if (distance > 110) {
+                owner.EndBattle();
+                if (owner.isCaptain) {
+                    owner.SwitchState(new PatrollingState(owner));
+                }
+                else {
+                    owner.SwitchState(new FormationFollowState(owner));
+                }
+            }
         }
-        owner.GetComponent<Boid>().fleeTargetPos = owner.currentEnemy.transform.position;
+        else {
+            owner.EndBattle();
+            if (owner.isCaptain) {
+                owner.SwitchState(new PatrollingState(owner));
+            }
+            else {
+                owner.SwitchState(new FormationFollowState(owner));
+            }
+        }
     }
 }

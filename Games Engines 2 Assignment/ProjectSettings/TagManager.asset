@@ -13,7 +13,6 @@ TagManager:
   - Viper
   - Raider
   - BattleManager
-  - Battleground
   layers:
   - Default
   - TransparentFX

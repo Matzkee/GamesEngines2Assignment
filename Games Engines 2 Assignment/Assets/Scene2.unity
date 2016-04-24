@@ -97,6 +97,7 @@ GameObject:
   - 92: {fileID: 16888791}
   - 124: {fileID: 16888790}
   - 81: {fileID: 16888789}
+  - 114: {fileID: 16888794}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -142,7 +143,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 7000
+  far clip plane: 15000
   field of view: 80
   orthographic: 0
   orthographic size: 5
@@ -170,7 +171,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
+--- !u!114 &16888794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 16888788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a5ba19d70e88d418c58ec5e59a7bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleCameras: []
+  idleCamera: 1
+  rotationSpeed: 0.2
+  camRoutine: 5
+  idleCamSwitchTime: 15
 --- !u!1001 &481977198
 Prefab:
   m_ObjectHideFlags: 0
@@ -208,7 +225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: numberOfTeams
@@ -345,7 +362,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 115158, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_TagString
@@ -422,7 +439,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: numberOfTeams
@@ -555,7 +572,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &1104403966
 Prefab:
   m_ObjectHideFlags: 0
@@ -593,7 +610,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 115158, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_Name
@@ -674,7 +691,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481340, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 115158, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
       propertyPath: m_Name
@@ -725,7 +742,7 @@ GameObject:
   - 114: {fileID: 1428915520}
   m_Layer: 0
   m_Name: BattleManager
-  m_TagString: Battleground
+  m_TagString: BattleManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -741,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61e3a30733bd4f48b59970b21f9ad3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBattles: 0
 --- !u!4 &1428915521
 Transform:
   m_ObjectHideFlags: 0
@@ -752,7 +770,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
 --- !u!1001 &1653659506
 Prefab:
   m_ObjectHideFlags: 0
@@ -790,7 +808,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: numberOfTeams

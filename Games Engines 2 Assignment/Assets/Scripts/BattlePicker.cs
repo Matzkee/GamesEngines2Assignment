@@ -19,12 +19,23 @@ public class BattlePicker : MonoBehaviour {
             battlingFighters.Add(fighter1);
             battlingFighters.Add(fighter2);
 
+            fighter1.GetComponent<FighterStateMachine>().currentEnemy = fighter2;
+            fighter2.GetComponent<FighterStateMachine>().currentEnemy = fighter1;
+            fighter1.GetComponent<FighterStateMachine>().isFighting = true;
+            fighter2.GetComponent<FighterStateMachine>().isFighting = true;
+
             float random = Random.value;
             if (random > 0.5f) {
-                fighter1.GetComponent<FighterStateMachine>().isFighting = true;
-                fighter2.GetComponent<FighterStateMachine>().isFighting = true;
-                fighter1.GetComponent<FighterStateMachine>().isAttacking = true;
-                fighter2.GetComponent<FighterStateMachine>().isAttacking = false;
+                fighter1.GetComponent<FighterStateMachine>().
+                    SwitchState(new FightingState(fighter1.GetComponent<FighterStateMachine>()));
+                fighter2.GetComponent<FighterStateMachine>().
+                    SwitchState(new PatrollingState(fighter2.GetComponent<FighterStateMachine>()));
+            }
+            else {
+                fighter2.GetComponent<FighterStateMachine>().
+                    SwitchState(new FightingState(fighter2.GetComponent<FighterStateMachine>()));
+                fighter1.GetComponent<FighterStateMachine>().
+                    SwitchState(new PatrollingState(fighter1.GetComponent<FighterStateMachine>()));
             }
             currentBattles += 1;
         }
@@ -32,6 +43,8 @@ public class BattlePicker : MonoBehaviour {
 
     public void RemoveBattle(GameObject fighter1, GameObject fighter2) {
         if (battlingFighters.Contains(fighter1) || battlingFighters.Contains(fighter2)) {
+            fighter1.GetComponent<FighterStateMachine>().isFighting = false;
+            fighter2.GetComponent<FighterStateMachine>().isFighting = false;
             battlingFighters.Remove(fighter1);
             battlingFighters.Remove(fighter2);
             currentBattles -= 1;

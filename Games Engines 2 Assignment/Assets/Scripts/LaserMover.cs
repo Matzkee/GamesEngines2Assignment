@@ -25,7 +25,9 @@ public class LaserMover : MonoBehaviour {
                 other.transform.root.GetComponent<MothershipStateMachine>().health -= damage;
             }
             if (targetTag == "Viper" || targetTag == "Raider") {
-                other.transform.root.GetComponent<FighterStateMachine>().health -= damage;
+                if (other.GetType() != typeof(SphereCollider)) {
+                    other.transform.root.GetComponent<FighterStateMachine>().health -= damage;
+                }
             }
             // destroy object
             Destroy(gameObject);
