@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 426528}
   - 33: {fileID: 3375314}
-  - 136: {fileID: 13671146}
   - 23: {fileID: 2326382}
   m_Layer: 0
   m_Name: RocketShell
@@ -60,6 +59,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 463726}
   - 114: {fileID: 11466242}
+  - 136: {fileID: 13693426}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -199,18 +199,18 @@ MonoBehaviour:
   damage: 2
   speed: 1000
   targetTag: 
---- !u!136 &13671146
+--- !u!136 &13693426
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154704}
+  m_GameObject: {fileID: 185380}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  m_Radius: 2
+  m_Height: 8
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19820206
 ParticleSystem:

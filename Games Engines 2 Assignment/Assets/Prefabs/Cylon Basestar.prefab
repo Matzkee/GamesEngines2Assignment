@@ -24,9 +24,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 481340}
   - 114: {fileID: 11444444}
+  - 54: {fileID: 5459288}
   m_Layer: 8
   m_Name: Cylon Basestar
-  m_TagString: Mothership
+  m_TagString: Basestar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,6 +374,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136184}
   m_Mesh: {fileID: 4300000, guid: 61aaf9dc338b0844c9302b54576fbf76, type: 3}
+--- !u!54 &5459288
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115158}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &6450240
 MeshCollider:
   m_ObjectHideFlags: 1

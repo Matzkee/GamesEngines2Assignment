@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
+  speed: 500
   rotationSpeed: 0.2
   jumpDelay: 20
   scaleRatio: 0.99
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
+  speed: 500
   rotationSpeed: 0.2
   jumpDelay: 20
   scaleRatio: 0.99
@@ -244,7 +244,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &411333065
 Prefab:
   m_ObjectHideFlags: 0
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
+  speed: 500
   rotationSpeed: 0.2
   jumpDelay: 20
   scaleRatio: 0.99
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
+  speed: 500
   rotationSpeed: 0.2
   jumpDelay: 20
   scaleRatio: 0.99
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
+  speed: 500
   rotationSpeed: 0.2
   jumpDelay: 20
   scaleRatio: 0.99
@@ -978,7 +978,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &1355043346
 Prefab:
   m_ObjectHideFlags: 0
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
+  speed: 500
   rotationSpeed: 0.2
   jumpDelay: 20
   scaleRatio: 0.99
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
+  speed: 500
   rotationSpeed: 0.2
   jumpDelay: 20
   scaleRatio: 0.99
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyperJumpPoint: {fileID: 213851917}
-  speed: 1500
+  speed: 500
   rotationSpeed: 0.2
   jumpDelay: 20
   scaleRatio: 0.99

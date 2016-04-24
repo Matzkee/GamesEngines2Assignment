@@ -19,13 +19,13 @@ public class LaserMover : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == targetTag) {
+        if (other.transform.root.tag == targetTag) {
             // reduce health of target tag
             if (targetTag == "Basestar" || targetTag == "Pegasus") {
-                other.gameObject.GetComponent<MothershipStateMachine>().health -= damage;
+                other.transform.root.GetComponent<MothershipStateMachine>().health -= damage;
             }
             if (targetTag == "Viper" || targetTag == "Raider") {
-                other.gameObject.GetComponent<FighterStateMachine>().health -= damage;
+                other.transform.root.GetComponent<FighterStateMachine>().health -= damage;
             }
             // destroy object
             Destroy(gameObject);

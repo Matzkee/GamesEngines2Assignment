@@ -28,7 +28,7 @@ public class MothershipStateMachine : MonoBehaviour {
         // Pick a point at a certain distance if the ship is approaching
         if (!isStationery) {
             Vector3 toTarget = (enemy.transform.position - transform.position).normalized;
-            Vector3 approachPoint = enemy.transform.position - (toTarget * 1000);
+            Vector3 approachPoint = enemy.transform.position - (toTarget * 1500);
             GetComponent<Boid>().arriveTargetPos = approachPoint;
             GetComponent<Boid>().arriveEnabled = true;
         }
