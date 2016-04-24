@@ -1,27 +1,27 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CameraFollower : MonoBehaviour {
     
-    public GameObject[] idleCameras;
+    public List<GameObject> idleCameras;
     public bool idleCamera = true;
     GameObject current;
 
+    public float cameraSpeed = 10;
     public float rotationSpeed = 0.2f;
     public float camRoutine = 5.0f;
     public float idleCamSwitchTime = 15.0f;
 
 	// Use this for initialization
 	void Start () {
-        idleCameras = GameObject.FindGameObjectsWithTag("Camera-spot");
-
         StartCoroutine("CameraSwitcher");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        TravelToObject();
-        RotateToObject();
+        SetView();
     }
 
     IEnumerator CameraSwitcher()
@@ -32,6 +32,7 @@ public class CameraFollower : MonoBehaviour {
             // While there is nothing interesting to see
             while (idleCamera)
             {
+                idleCameras = GameObject.FindGameObjectsWithTag("Camera-spot").ToList();
                 PickNewIdleCamera();
 
                 yield return new WaitForSeconds(idleCamSwitchTime);
@@ -42,22 +43,18 @@ public class CameraFollower : MonoBehaviour {
         }
     }
 
-    void TravelToObject()
+    void SetView()
     {
-        transform.position = current.transform.position;
-    }
-
-    void RotateToObject()
-    {
+        transform.position = Vector3.MoveTowards(transform.position, current.transform.position, cameraSpeed * Time.deltaTime);
         float angle = Quaternion.Angle(transform.rotation, current.transform.rotation);
-        if (angle > 0.1f)
-        {
+        if (angle > 0.1f) {
             transform.rotation = Quaternion.Slerp(transform.rotation, current.transform.rotation, Time.deltaTime * rotationSpeed);
         }
     }
 
     void PickNewIdleCamera()
     {
-        current = idleCameras[Random.Range(0, idleCameras.Length)];
+        current = idleCameras[Random.Range(0, idleCameras.Count)];
+        transform.position = current.transform.position;
     }
 }
