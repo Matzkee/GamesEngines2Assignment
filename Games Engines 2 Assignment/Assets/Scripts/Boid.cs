@@ -111,26 +111,6 @@ public class Boid : MonoBehaviour {
     Vector3 MakeNextWaypoint() {
         Vector3 randomPos = patrolTransform.position + (Random.insideUnitSphere * patrolRadius);
         return randomPos;
-        //while (!found) {
-        //    Vector3 randomPos = patrolTransform.position + (Random.insideUnitSphere * patrolRadius);
-        //    Vector3 toRandomPos = (randomPos - transform.position).normalized;
-        //    float distance = Vector3.Distance(transform.position, randomPos);
-        //    Ray toPointRay = new Ray(transform.position, toRandomPos);
-        //    RaycastHit hit;
-        //    if (!Physics.Raycast(toPointRay, out hit, distance)) {
-        //        patrolPoint = randomPos;
-        //        found = true;
-        //    }
-        //}
-        //if (patrolTransform != null) {
-        //    float angle = Random.Range(0, 360);
-        //    float x = patrolTransform.position.x + (patrolRadius * Mathf.Cos(angle * Mathf.Deg2Rad));
-        //    float z = patrolTransform.position.z + (patrolRadius * Mathf.Sin(angle * Mathf.Deg2Rad));
-        //    return new Vector3(x, patrolTransform.position.y + Random.Range(-100, 100), z);
-        //}
-        //else {
-        //    return Vector3.zero;
-        //}
     }
 
     Vector3 Seek(Vector3 target) {

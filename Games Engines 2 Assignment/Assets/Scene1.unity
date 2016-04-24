@@ -103,7 +103,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 6000
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1 &107293743 stripped
 GameObject:
@@ -123,7 +123,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 500
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1001 &182696262
 Prefab:
@@ -216,7 +216,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 500
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1 &213851916
 GameObject:
@@ -244,7 +244,47 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 8
+--- !u!1 &233734220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 233734221}
+  - 114: {fileID: 233734222}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &233734221
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 233734220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &233734222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 233734220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4776271cd0cbe740ac3e886e8f3aeea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSwitchTime: 50
 --- !u!1001 &411333065
 Prefab:
   m_ObjectHideFlags: 0
@@ -336,7 +376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!81 &423922674
 AudioListener:
   m_ObjectHideFlags: 0
@@ -405,9 +445,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleCameras: []
   idleCamera: 1
+  cameraSpeed: 50
   rotationSpeed: 1
   camRoutine: 5
-  idleCamSwitchTime: 10
+  idleCamSwitchTime: 5
 --- !u!1 &489204110 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 109628, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
@@ -426,7 +467,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 6000
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1001 &585986767
 Prefab:
@@ -710,7 +751,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 500
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1 &769606166 stripped
 GameObject:
@@ -730,7 +771,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 500
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1 &833764198 stripped
 GameObject:
@@ -750,7 +791,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 6000
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1001 &877664148
 Prefab:
@@ -843,7 +884,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 500
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1001 &1016716090
 Prefab:
@@ -978,7 +1019,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &1355043346
 Prefab:
   m_ObjectHideFlags: 0
@@ -1124,7 +1165,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 500
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1001 &1813292695
 Prefab:
@@ -1190,7 +1231,7 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 500
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99
 --- !u!1 &1945857748 stripped
 GameObject:
@@ -1210,5 +1251,5 @@ MonoBehaviour:
   hyperJumpPoint: {fileID: 213851917}
   speed: 500
   rotationSpeed: 0.2
-  jumpDelay: 20
+  jumpDelay: 15
   scaleRatio: 0.99

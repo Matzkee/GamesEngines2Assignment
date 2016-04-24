@@ -9,7 +9,7 @@ public class HyperJump : MonoBehaviour {
     Boid boid;
     public float speed = 200;
     public float rotationSpeed = 5;
-    public float jumpDelay = 20;
+    public float jumpDelay = 15;
 
     bool readyToJump;
 

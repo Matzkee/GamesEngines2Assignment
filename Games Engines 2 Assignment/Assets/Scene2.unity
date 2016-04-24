@@ -188,7 +188,7 @@ MonoBehaviour:
   cameraSpeed: 50
   rotationSpeed: 1
   camRoutine: 5
-  idleCamSwitchTime: 15
+  idleCamSwitchTime: 7
 --- !u!1001 &481977198
 Prefab:
   m_ObjectHideFlags: 0
