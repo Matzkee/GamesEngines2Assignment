@@ -12,7 +12,12 @@ public class PatrollingState : State {
     }
 
     public override void Enter() {
-        owner.GetComponent<Boid>().patrolTransform = owner.motherShip.transform;
+        if (owner.motherShip != null) {
+            owner.GetComponent<Boid>().patrolTransform = owner.motherShip.transform;
+        }
+        else {
+            owner.GetComponent<Boid>().patrolTransform = owner.transform;
+        }
         owner.GetComponent<Boid>().patrolRadius = owner.patrolRadius;
         owner.GetComponent<Boid>().patrolEnabled = true;
     }

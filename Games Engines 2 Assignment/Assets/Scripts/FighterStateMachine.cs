@@ -10,7 +10,9 @@ public class FighterStateMachine : MonoBehaviour {
     public float collisionDistance = 100.0f;
     public GameObject captainShip = null;
     public Vector3 formationSpot;
-    public Transform motherShip = null;
+    public GameObject motherShip = null;
+    public string enemyType;
+    public GameObject currentEnemy = null;
 
     [HideInInspector]
     public bool ready = false;
@@ -43,6 +45,16 @@ public class FighterStateMachine : MonoBehaviour {
         }
     }
 
+    IEnumerator Fight() {
+        while (health > 0) {
+            // Check every 5 sec if the ship is destroyed
+            yield return new WaitForSeconds(5);
+        }
+        // Respawn again 
+        gameObject.SetActive(false);
+        motherShip.GetComponent<MothershipSpawner>().Respawn(gameObject);
+    }
+
     IEnumerator StartUp() {
 
         // Initially wait a second in case other objects want to change this one
@@ -55,6 +67,7 @@ public class FighterStateMachine : MonoBehaviour {
             yield return new WaitForSeconds(5);
         }
         StartCoroutine("AvoidMothershipCollision");
+        StartCoroutine("Fight");
     }
     
     IEnumerator AvoidMothershipCollision() {
@@ -98,6 +111,13 @@ public class FighterStateMachine : MonoBehaviour {
         }
     }
 
-
+    void OnTriggerEnter(Collider other) {
+        // Sphere collider is the detection collider
+        if (other.GetType() == typeof(SphereCollider) && other.gameObject.tag == enemyType) {
+            if (currentEnemy == null) {
+                currentEnemy = other.gameObject;
+            }
+        }
+    }
 
 }

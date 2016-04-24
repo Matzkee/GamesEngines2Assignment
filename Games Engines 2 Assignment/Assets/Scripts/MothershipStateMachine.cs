@@ -34,6 +34,7 @@ public class MothershipStateMachine : MonoBehaviour {
         }
 
         StartCoroutine("Attack");
+        StartCoroutine("Fight");
     }
 
     public void SwitchState(State state) {
@@ -53,6 +54,15 @@ public class MothershipStateMachine : MonoBehaviour {
         if (state != null) {
             state.Update();
         }
+    }
+
+    IEnumerator Fight() {
+        while (health > 0) {
+            // Check every 5 sec if the ship is destroyed
+            yield return new WaitForSeconds(5);
+        }
+        // Respawn again 
+        gameObject.SetActive(false);
     }
 
     IEnumerator Attack() {

@@ -67,5 +67,9 @@ public class MothershipSpawner : MonoBehaviour {
             teamObject.transform.parent = teamList.transform;
         }
     }
+
+    public void Respawn(GameObject respawnObject) {
+        toSpawn.Push(respawnObject);
+    }
 }
 
