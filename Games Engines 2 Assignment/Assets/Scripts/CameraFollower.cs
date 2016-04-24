@@ -45,7 +45,9 @@ public class CameraFollower : MonoBehaviour {
 
     void SetView()
     {
-        transform.position = Vector3.MoveTowards(transform.position, current.transform.position, cameraSpeed * Time.deltaTime);
+        Vector3 toTarget = (current.transform.position - transform.position).normalized;
+        Vector3 target = current.transform.position - toTarget;
+        transform.position = Vector3.MoveTowards(transform.position, target, cameraSpeed * Time.deltaTime);
         float angle = Quaternion.Angle(transform.rotation, current.transform.rotation);
         if (angle > 0.1f) {
             transform.rotation = Quaternion.Slerp(transform.rotation, current.transform.rotation, Time.deltaTime * rotationSpeed);
