@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleCameras: []
   idleCamera: 1
-  cameraSpeed: 52
+  cameraSpeed: 51
   rotationSpeed: 1
   camRoutine: 5
   idleCamSwitchTime: 7

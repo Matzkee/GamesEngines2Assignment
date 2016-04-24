@@ -7,6 +7,8 @@ public class LaserMover : MonoBehaviour {
     public int damage = 2;
     public float speed = 1000.0f;
     public string targetTag;
+
+    public GameObject explosion;
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,6 +32,7 @@ public class LaserMover : MonoBehaviour {
                 }
             }
             // destroy object
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
