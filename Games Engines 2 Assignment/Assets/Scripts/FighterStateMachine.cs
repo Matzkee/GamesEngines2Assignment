@@ -15,7 +15,7 @@ public class FighterStateMachine : MonoBehaviour {
     public GameObject currentEnemy = null;
 
     [HideInInspector]
-    public bool ready = false;
+    public bool ready = false, isAttacking = false, isFighting = false;
     State state = null;
 
     // Use this for initialization
@@ -52,6 +52,7 @@ public class FighterStateMachine : MonoBehaviour {
         }
         // Respawn again 
         gameObject.SetActive(false);
+        GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattlePicker>().RemoveFighter(gameObject);
         motherShip.GetComponent<MothershipSpawner>().Respawn(gameObject);
     }
 
@@ -114,8 +115,18 @@ public class FighterStateMachine : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         // Sphere collider is the detection collider
         if (other.GetType() == typeof(SphereCollider) && other.gameObject.tag == enemyType) {
-            if (currentEnemy == null) {
+            if (currentEnemy == null && !other.gameObject.GetComponent<FighterStateMachine>().isFighting) {
                 currentEnemy = other.gameObject;
+                BattlePicker battlePicker = 
+                    GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattlePicker>();
+                battlePicker.PickFighterBattle(gameObject, currentEnemy);
+
+                if (isAttacking) {
+                    SwitchState(new FightingState(this));
+                }
+                else {
+                    SwitchState(new FleeingState(this));
+                }
             }
         }
     }

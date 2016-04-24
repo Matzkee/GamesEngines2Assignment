@@ -12,6 +12,8 @@ TagManager:
   - Basestar
   - Viper
   - Raider
+  - BattleManager
+  - Battleground
   layers:
   - Default
   - TransparentFX
