@@ -31,6 +31,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &124408
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 442584}
+  m_Layer: 0
+  m_Name: Turret1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &135984
 GameObject:
   m_ObjectHideFlags: 1
@@ -47,6 +62,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &136312
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 443600}
+  m_Layer: 0
+  m_Name: Turret2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &140944
 GameObject:
   m_ObjectHideFlags: 1
@@ -58,6 +88,21 @@ GameObject:
   m_Layer: 0
   m_Name: CameraSpot3
   m_TagString: Camera-spot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &144532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 493794}
+  m_Layer: 0
+  m_Name: Turrets
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +228,7 @@ GameObject:
   - 4: {fileID: 456674}
   - 114: {fileID: 11432698}
   - 82: {fileID: 8298694}
+  - 135: {fileID: 13549536}
   m_Layer: 0
   m_Name: Viper
   m_TagString: Untagged
@@ -294,6 +340,18 @@ Transform:
   - {fileID: 450756}
   m_Father: {fileID: 456674}
   m_RootOrder: 2
+--- !u!4 &442584
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.05, y: -0.158, z: 1.271}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493794}
+  m_RootOrder: 0
 --- !u!4 &443330
 Transform:
   m_ObjectHideFlags: 1
@@ -306,6 +364,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436408}
   m_RootOrder: 2
+--- !u!4 &443600
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.05, y: -0.158, z: 1.271}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493794}
+  m_RootOrder: 1
 --- !u!4 &447074
 Transform:
   m_ObjectHideFlags: 1
@@ -344,6 +414,7 @@ Transform:
   - {fileID: 496316}
   - {fileID: 476480}
   - {fileID: 436408}
+  - {fileID: 493794}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &459288
@@ -436,6 +507,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459288}
   m_RootOrder: 0
+--- !u!4 &493794
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 442584}
+  - {fileID: 443600}
+  m_Father: {fileID: 456674}
+  m_RootOrder: 3
 --- !u!4 &496316
 Transform:
   m_ObjectHideFlags: 1
@@ -695,9 +780,10 @@ MonoBehaviour:
   acceleration: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   mass: 1
-  damping: 0.1
-  maxSpeed: 100
-  maxForce: 100
+  damping: 0.05
+  collisionPriority: 0
+  maxSpeed: 200
+  maxForce: 200
   seekEnabled: 0
   seekTargetPos: {x: 0, y: 0, z: 0}
   arriveEnabled: 0
@@ -707,10 +793,28 @@ MonoBehaviour:
   fleeTargetPos: {x: 0, y: 0, z: 0}
   fleeRange: 15
   formationFollowingEnabled: 0
-  formationPos: {x: 0, y: 0, z: 0}
+  formationLeader: {fileID: 0}
+  formationOffset: {x: 0, y: 0, z: 0}
+  formationTarget: {x: 0, y: 0, z: 0}
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
+  patrolEnabled: 0
+  patrolTransform: {fileID: 0}
+  patrolRadius: 0
+  patrolTarget: {x: 0, y: 0, z: 0}
+--- !u!135 &13549536
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 50
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19809616
 ParticleSystem:
   m_ObjectHideFlags: 1
