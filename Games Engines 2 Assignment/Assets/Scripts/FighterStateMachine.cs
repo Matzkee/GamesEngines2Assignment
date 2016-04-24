@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Boid))]
 public class FighterStateMachine : MonoBehaviour {
@@ -13,13 +14,20 @@ public class FighterStateMachine : MonoBehaviour {
     public GameObject motherShip = null;
     public string enemyType;
     public GameObject currentEnemy = null;
+    public GameObject bulletPrefab;
+
+    List<Transform> turrets;
 
     [HideInInspector]
-    public bool ready = false, isAttacking = false, isFighting = false;
+    public bool ready = false, isAttacking = false, isFighting = false, attackingTarget = false;
     State state = null;
 
     // Use this for initialization
     void Start() {
+        turrets = new List<Transform>();
+        foreach (Transform child in transform.FindChild("Turrets")) {
+            turrets.Add(child);
+        }
         StartCoroutine("StartUp");
     }
     void OnEnable() {
@@ -45,15 +53,27 @@ public class FighterStateMachine : MonoBehaviour {
         }
     }
 
+    public void EndBattle() {
+        GameObject.FindGameObjectWithTag("BattleManager").
+            GetComponent<BattlePicker>().RemoveBattle(gameObject, currentEnemy);
+    }
+
     IEnumerator Fight() {
         while (health > 0) {
             // Check every 5 sec if the ship is destroyed
-            yield return new WaitForSeconds(5);
+            if (attackingTarget) {
+                Transform turret = turrets[Random.Range(0, turrets.Count)];
+                GameObject bulletCopy = (GameObject)Instantiate(bulletPrefab, turret.position, turret.rotation);
+                bulletCopy.GetComponent<LaserMover>().targetTag = currentEnemy.tag;
+            }
+            yield return new WaitForSeconds(3);
         }
         // Respawn again 
         gameObject.SetActive(false);
-        GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattlePicker>().RemoveFighter(gameObject);
-        motherShip.GetComponent<MothershipSpawner>().Respawn(gameObject);
+        EndBattle();
+        if (motherShip != null) {
+            motherShip.GetComponent<MothershipSpawner>().Respawn(gameObject);
+        }
     }
 
     IEnumerator StartUp() {

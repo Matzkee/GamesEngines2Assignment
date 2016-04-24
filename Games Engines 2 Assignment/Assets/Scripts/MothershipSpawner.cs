@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class MothershipSpawner : MonoBehaviour {
 
     public GameObject spawnPrefab;
+    public GameObject fighterBullet;
     List<Transform> spawns;
     List<Team> teams;
     
@@ -54,7 +55,7 @@ public class MothershipSpawner : MonoBehaviour {
         for (int i = 0; i < numberOfTeams; i++) {
             GameObject teamObject = new GameObject("Team " + i);
             Team newTeam = new Team(sizeOfTeams, formationOffset, spawns[Random.Range(0, spawns.Count)],
-                spawnPrefab, this.gameObject);
+                spawnPrefab, fighterBullet,this.gameObject);
 
             foreach (GameObject squadmate in newTeam.squadmates) {
                 toSpawn.Push(squadmate);
@@ -70,6 +71,15 @@ public class MothershipSpawner : MonoBehaviour {
 
     public void Respawn(GameObject respawnObject) {
         toSpawn.Push(respawnObject);
+    }
+
+    public void ChangePatrolShip(GameObject target) {
+        foreach (Team team in teams) {
+            team.captain.GetComponent<FighterStateMachine>().motherShip = target;
+            foreach (GameObject squadmate in team.squadmates) {
+                squadmate.GetComponent<FighterStateMachine>().motherShip = target;
+            }
+        }
     }
 }
 

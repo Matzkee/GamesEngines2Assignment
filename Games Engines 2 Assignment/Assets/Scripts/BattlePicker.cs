@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class BattlePicker : MonoBehaviour {
 
+    public int currentBattles;
+
     // This class serves as a battle picker for smaller fighters
     // The class dictates which ship is to flee and which to attack in a battle scenario
     // since both of them use same collider detection this is encessary
@@ -24,12 +26,15 @@ public class BattlePicker : MonoBehaviour {
                 fighter1.GetComponent<FighterStateMachine>().isAttacking = true;
                 fighter2.GetComponent<FighterStateMachine>().isAttacking = false;
             }
+            currentBattles += 1;
         }
     }
 
-    public void RemoveFighter(GameObject fighter) {
-        if (battlingFighters.Contains(fighter)) {
-            battlingFighters.Remove(fighter);
+    public void RemoveBattle(GameObject fighter1, GameObject fighter2) {
+        if (battlingFighters.Contains(fighter1) || battlingFighters.Contains(fighter2)) {
+            battlingFighters.Remove(fighter1);
+            battlingFighters.Remove(fighter2);
+            currentBattles -= 1;
         }
     }
 }

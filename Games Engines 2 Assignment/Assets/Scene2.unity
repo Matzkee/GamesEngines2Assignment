@@ -180,7 +180,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2971
+      value: -5319
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalPosition.y
@@ -188,7 +188,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2435
+      value: 2499
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalRotation.x
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+  fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
   spawnTime: 4
@@ -287,7 +288,7 @@ MonoBehaviour:
   health: 200
   enemy: {fileID: 622305523}
   isStationery: 0
-  precisionFactor: 50
+  precisionFactor: 10
   minAttackDelay: 2
   maxAttackDelay: 5
   bulletSpeed: 50
@@ -354,6 +355,10 @@ Prefab:
       propertyPath: m_TagString
       value: Mothership
       objectReference: {fileID: 0}
+    - target: {fileID: 11444444, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
+      propertyPath: fighterBullet
+      value: 
+      objectReference: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
   m_IsPrefabParent: 0
@@ -375,7 +380,7 @@ MonoBehaviour:
   health: 200
   enemy: {fileID: 481977199}
   isStationery: 1
-  precisionFactor: 50
+  precisionFactor: 10
   minAttackDelay: 2
   maxAttackDelay: 5
   bulletSpeed: 50
@@ -389,15 +394,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2987
+      value: 5410
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 865
+      value: 1082
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3501
+      value: -276
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalRotation.x
@@ -466,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+  fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
   spawnTime: 4
@@ -484,7 +490,7 @@ MonoBehaviour:
   health: 200
   enemy: {fileID: 1206904465}
   isStationery: 0
-  precisionFactor: 50
+  precisionFactor: 10
   minAttackDelay: 2
   maxAttackDelay: 5
   bulletSpeed: 50
@@ -601,6 +607,10 @@ Prefab:
       propertyPath: m_TagString
       value: Mothership
       objectReference: {fileID: 0}
+    - target: {fileID: 11444444, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
+      propertyPath: fighterBullet
+      value: 
+      objectReference: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
   m_IsPrefabParent: 0
@@ -622,7 +632,7 @@ MonoBehaviour:
   health: 200
   enemy: {fileID: 1653659507}
   isStationery: 1
-  precisionFactor: 50
+  precisionFactor: 10
   minAttackDelay: 2
   maxAttackDelay: 5
   bulletSpeed: 50
@@ -674,6 +684,10 @@ Prefab:
       propertyPath: m_TagString
       value: Basestar
       objectReference: {fileID: 0}
+    - target: {fileID: 11444444, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
+      propertyPath: fighterBullet
+      value: 
+      objectReference: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cb300cb542eb364ba9b07d14cb6c040, type: 2}
   m_IsPrefabParent: 0
@@ -695,7 +709,7 @@ MonoBehaviour:
   health: 200
   enemy: {fileID: 897925159}
   isStationery: 1
-  precisionFactor: 50
+  precisionFactor: 10
   minAttackDelay: 2
   maxAttackDelay: 5
   bulletSpeed: 50
@@ -756,7 +770,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3927
+      value: -763
       objectReference: {fileID: 0}
     - target: {fileID: 411160, guid: 1c49a5d9639cec94da829740c7e76710, type: 2}
       propertyPath: m_LocalRotation.x
@@ -821,6 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+  fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
   spawnTime: 4
@@ -839,7 +854,7 @@ MonoBehaviour:
   health: 200
   enemy: {fileID: 1104403967}
   isStationery: 0
-  precisionFactor: 50
+  precisionFactor: 10
   minAttackDelay: 2
   maxAttackDelay: 5
   bulletSpeed: 50

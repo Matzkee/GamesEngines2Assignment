@@ -7,18 +7,19 @@ public class Team {
     public List<GameObject> squadmates;
 
     List<Vector3> formation;
-    GameObject prefab, mothership;
+    GameObject prefab, mothership, bullet;
     int squadSize;
     float formationOffset;
     Transform spawnPoint;
 
     // Contructor
-    public Team(int _squadSize, float _formationOffset, Transform _spawnpoint, GameObject _prefab, GameObject _mothership) {
+    public Team(int _squadSize, float _formationOffset, Transform _spawnpoint, GameObject _prefab, GameObject _bullet, GameObject _mothership) {
         squadSize = _squadSize;
         formationOffset = _formationOffset;
         spawnPoint = _spawnpoint;
         prefab = _prefab;
         mothership = _mothership;
+        bullet = _bullet;
 
         squadmates = new List<GameObject>();
         MakePyramidFormation();
@@ -32,6 +33,7 @@ public class Team {
         captainMachine.isCaptain = true;
         captainMachine.health = 30;
         captainMachine.motherShip = mothership;
+        captainMachine.bulletPrefab = bullet;
         // set inactive for now so that mothership can begin spawning
         captain.name = "Team Captain";
         captain.SetActive(false);
@@ -42,6 +44,7 @@ public class Team {
             squadMachine.motherShip = mothership;
             squadMachine.formationSpot = formation[i - 1];
             squadMachine.captainShip = captain;
+            squadMachine.bulletPrefab = bullet;
             squadmate.name = "Squadmate " + i;
             squadmates.Add(squadmate);
             squadmate.SetActive(false);
