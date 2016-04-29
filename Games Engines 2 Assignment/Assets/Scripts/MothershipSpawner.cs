@@ -4,11 +4,13 @@ using System.Collections.Generic;
 
 public class MothershipSpawner : MonoBehaviour {
 
-    public GameObject spawnPrefab;
+    [Header("Spawning prefab")]
+    public GameObject fighterPrefab;
     public GameObject fighterBullet;
     List<Transform> spawns;
     List<Team> teams;
     
+    [Header("Team options")]
     [Range(0, 6)]
     public int numberOfTeams;
     [Range(0, 10)]
@@ -17,6 +19,9 @@ public class MothershipSpawner : MonoBehaviour {
     public float formationOffset = 10;
 
     Stack<GameObject> toSpawn;
+
+    [HideInInspector]
+    public bool teamsReady = false;
 
     // Use this for initialization
     void Start() {
@@ -37,6 +42,7 @@ public class MothershipSpawner : MonoBehaviour {
     }
 
     IEnumerator SpawnShips() {
+        // Spawn smaller ships every few seconds and respawn the ones destroyed in battle
         while (true) {
             if (toSpawn.Count != 0) {
                 GameObject newSpawn = toSpawn.Pop();
@@ -51,11 +57,12 @@ public class MothershipSpawner : MonoBehaviour {
     }
 
     void SetupTeams(int numberOfTeams, int sizeOfTeams) {
+        // Setup teams and their objects for easy navigation & debugging
         GameObject teamList = new GameObject("Teams");
         for (int i = 0; i < numberOfTeams; i++) {
             GameObject teamObject = new GameObject("Team " + i);
             Team newTeam = new Team(sizeOfTeams, formationOffset, spawns[Random.Range(0, spawns.Count)],
-                spawnPrefab, fighterBullet,this.gameObject);
+                fighterPrefab, fighterBullet, this.gameObject);
 
             foreach (GameObject squadmate in newTeam.squadmates) {
                 toSpawn.Push(squadmate);
@@ -67,6 +74,7 @@ public class MothershipSpawner : MonoBehaviour {
 
             teamObject.transform.parent = teamList.transform;
         }
+        teamsReady = true;
     }
 
     public void Respawn(GameObject respawnObject) {

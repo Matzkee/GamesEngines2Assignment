@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class MothershipStateMachine : MonoBehaviour {
+public class MothershipBrain : MonoBehaviour {
 
     public int health = 200;
     public GameObject enemy;
@@ -17,9 +17,15 @@ public class MothershipStateMachine : MonoBehaviour {
 
     List<Transform> turrets;
 
-    State state = null;
-
     void Start() {
+        StartCoroutine("Setup");
+    }
+
+    IEnumerator Setup() {
+        // Wait for the mothership spawner to setup teams & begin the fight
+        while (GetComponent<MothershipSpawner>().teamsReady != true) {
+            yield return new WaitForSeconds(2);
+        }
         // Get positions of turrets
         turrets = new List<Transform>();
         foreach (Transform child in transform.FindChild("Turrets")) {
@@ -36,27 +42,8 @@ public class MothershipStateMachine : MonoBehaviour {
             GetComponent<MothershipSpawner>().ChangePatrolShip(enemy);
         }
 
-        StartCoroutine("Attack");
+        StartCoroutine("Shoot");
         StartCoroutine("Fight");
-    }
-
-    public void SwitchState(State state) {
-        if (this.state != null) {
-            this.state.Exit();
-        }
-
-        this.state = state;
-
-        if (this.state != null) {
-            this.state.Enter();
-        }
-    }
-
-    // Update is called once per frame
-    void Update() {
-        if (state != null) {
-            state.Update();
-        }
     }
 
     IEnumerator Fight() {
@@ -68,7 +55,7 @@ public class MothershipStateMachine : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    IEnumerator Attack() {
+    IEnumerator Shoot() {
         while (enemy != null) {
 
             // Shot in enemy direction with a precision factor

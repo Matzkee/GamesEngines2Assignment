@@ -24,7 +24,7 @@ public class LaserMover : MonoBehaviour {
         if (other.transform.root.tag == targetTag) {
             // reduce health of target tag
             if (targetTag == "Basestar" || targetTag == "Pegasus") {
-                other.transform.root.GetComponent<MothershipStateMachine>().health -= damage;
+                other.transform.root.GetComponent<MothershipBrain>().health -= damage;
             }
             if (targetTag == "Viper" || targetTag == "Raider") {
                 if (other.GetType() != typeof(SphereCollider)) {

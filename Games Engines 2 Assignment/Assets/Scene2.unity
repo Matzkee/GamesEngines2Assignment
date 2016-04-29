@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2daf321c4355d49b7aa53fa09196e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+  fighterPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2daf321c4355d49b7aa53fa09196e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
+  fighterPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2daf321c4355d49b7aa53fa09196e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+  fighterPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2daf321c4355d49b7aa53fa09196e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
+  fighterPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
@@ -1712,7 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2daf321c4355d49b7aa53fa09196e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
+  fighterPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2daf321c4355d49b7aa53fa09196e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
+  fighterPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
   teamSize: 5
