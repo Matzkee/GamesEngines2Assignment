@@ -5,9 +5,9 @@ public class Node {
 
     public Node parent;
     public Vector3 pos;
-    public int gCost;
-    public int hCost;
-    public int fCost {
+    public float gCost;
+    public float hCost;
+    public float fCost {
         get {
             return gCost + fCost;
         }
