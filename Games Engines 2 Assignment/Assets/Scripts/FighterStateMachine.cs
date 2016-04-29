@@ -146,10 +146,13 @@ public class FighterStateMachine : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         // Sphere collider is the detection collider
-        if (other.GetType() == typeof(SphereCollider) && other.gameObject.tag != gameObject.tag) {
-            if (currentEnemy == null && !other.gameObject.GetComponent<FighterStateMachine>().isFighting) {
-                BattlePicker battlePicker = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattlePicker>();
-                battlePicker.PickFighterBattle(gameObject, other.gameObject);
+        // Firstly check the tag of other game object and if its a viper then pick a new battle against it
+        if (other.gameObject.tag == "Viper" && other.gameObject.tag != gameObject.tag) {
+            if (other.GetType() == typeof(SphereCollider)) {
+                if (currentEnemy == null && !other.gameObject.GetComponent<FighterStateMachine>().isFighting) {
+                    BattlePicker battlePicker = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattlePicker>();
+                    battlePicker.PickFighterBattle(gameObject, other.gameObject);
+                }
             }
         }
     }

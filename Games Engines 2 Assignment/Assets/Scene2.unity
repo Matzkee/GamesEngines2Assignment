@@ -719,6 +719,7 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+  teamsReady: 0
 --- !u!114 &481977201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,6 +907,7 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+  teamsReady: 0
 --- !u!4 &622305527
 Transform:
   m_ObjectHideFlags: 0
@@ -1254,6 +1256,7 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+  teamsReady: 0
 --- !u!114 &897925161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1604,6 +1607,7 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+  teamsReady: 0
 --- !u!4 &1104403971
 Transform:
   m_ObjectHideFlags: 0
@@ -1718,6 +1722,7 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+  teamsReady: 0
 --- !u!4 &1206904469
 Transform:
   m_ObjectHideFlags: 0
@@ -2057,6 +2062,7 @@ MonoBehaviour:
   teamSize: 5
   spawnTime: 4
   formationOffset: 10
+  teamsReady: 0
 --- !u!114 &1653659509
 MonoBehaviour:
   m_ObjectHideFlags: 0
