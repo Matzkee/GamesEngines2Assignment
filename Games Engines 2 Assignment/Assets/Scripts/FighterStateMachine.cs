@@ -14,6 +14,9 @@ public class FighterStateMachine : MonoBehaviour {
     public GameObject motherShip = null;
     public GameObject currentEnemy = null;
     public GameObject bulletPrefab;
+    
+    public Pathfinder pathfinder;
+    int voxelSize = 150;
 
     List<Transform> turrets;
 
@@ -23,6 +26,7 @@ public class FighterStateMachine : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        pathfinder = new Pathfinder(voxelSize);
         turrets = new List<Transform>();
         foreach (Transform child in transform.FindChild("Turrets")) {
             turrets.Add(child);
@@ -52,12 +56,22 @@ public class FighterStateMachine : MonoBehaviour {
         }
     }
 
-    public void EndBattle() {
-        if (currentEnemy != null) {
-            GameObject.FindGameObjectWithTag("BattleManager").
-                GetComponent<BattlePicker>().RemoveBattle(gameObject, currentEnemy);
-            currentEnemy = null;
+    public void ResetFighter() {
+        isFighting = false;
+        attackingTarget = false;
+        currentEnemy = null;
+        if (isCaptain) {
+            SwitchState(new PatrollingState(this));
         }
+        else {
+            SwitchState(new FormationFollowState(this));
+        }
+    }
+
+    public void EndBattle() {
+        FighterStateMachine enemyMachine = currentEnemy.GetComponent<FighterStateMachine>();
+        ResetFighter();
+        enemyMachine.ResetFighter();
     }
 
     IEnumerator Fight() {
@@ -70,19 +84,27 @@ public class FighterStateMachine : MonoBehaviour {
                 GameObject bulletCopy = (GameObject)Instantiate(bulletPrefab, turret.position, turret.rotation);
                 bulletCopy.GetComponent<LaserMover>().targetTag = currentEnemy.tag;
             }
-            // Check if the ship is still beeing chased if it is suppossed to be
-            if (!isCaptain && currentEnemy != null && state.Description() == "Patrolling/Defending") {
+            // Check the status of the current battle
+            if (isFighting && currentEnemy != null) {
                 float distance = Vector3.Distance(transform.position, currentEnemy.transform.position);
-                if (distance > 100.0f) {
+                if (distance > 150.0f) {
                     EndBattle();
-                    SwitchState(new FormationFollowState(this));
                 }
             }
+
+
+            //// Check if the ship is still beeing chased if it is suppossed to be
+            //if (!isCaptain && currentEnemy != null && state.Description() == "Patrolling/Defending") {
+            //    float distance = Vector3.Distance(transform.position, currentEnemy.transform.position);
+            //    if (distance > 100.0f) {
+            //        EndBattle();
+            //        SwitchState(new FormationFollowState(this));
+            //    }
+            //}
             yield return new WaitForSeconds(3);
         }
         // Respawn again 
         gameObject.SetActive(false);
-        EndBattle();
         if (motherShip != null) {
             motherShip.GetComponent<MothershipSpawner>().Respawn(gameObject);
         }
@@ -99,38 +121,7 @@ public class FighterStateMachine : MonoBehaviour {
             // Wait few seconds until the ship has lift of
             yield return new WaitForSeconds(5);
         }
-        StartCoroutine("AvoidMothershipCollision");
         StartCoroutine("Fight");
-    }
-
-    IEnumerator AvoidMothershipCollision() {
-
-        while (true) {
-            Ray forwardRay = new Ray(transform.position, transform.forward.normalized);
-            RaycastHit hit;
-            if (Physics.Raycast(forwardRay, out hit, collisionDistance)) {
-                if (hit.collider.tag == "Mothership") {
-                    Vector3 toHitpoint = (hit.point - transform.position).normalized;
-                    Vector3 reflectedDir = Vector3.Reflect(toHitpoint, hit.normal);
-                    Vector3 reflectedPos = hit.point + (reflectedDir * 50);
-                    GetComponent<Boid>().collisionPriority = true;
-                    GetComponent<Boid>().seekTargetPos = reflectedPos;
-                    GetComponent<Boid>().seekEnabled = true;
-                    Debug.DrawLine(transform.position, hit.point, Color.green, 2);
-                    Debug.DrawLine(hit.point, reflectedPos, Color.green, 2);
-                }
-                else {
-                    GetComponent<Boid>().seekEnabled = false;
-                    GetComponent<Boid>().collisionPriority = false;
-                }
-            }
-            else {
-                GetComponent<Boid>().seekEnabled = false;
-                GetComponent<Boid>().collisionPriority = false;
-            }
-
-            yield return new WaitForSeconds(1f);
-        }
     }
 
     void OnDrawGizmos() {
@@ -145,16 +136,34 @@ public class FighterStateMachine : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        // Sphere collider is the detection collider
-        // Firstly check the tag of other game object and if its a viper then pick a new battle against it
-        if (other.gameObject.tag == "Viper" && other.gameObject.tag != gameObject.tag) {
-            if (other.GetType() == typeof(SphereCollider)) {
-                if (currentEnemy == null && !other.gameObject.GetComponent<FighterStateMachine>().isFighting) {
-                    BattlePicker battlePicker = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattlePicker>();
-                    battlePicker.PickFighterBattle(gameObject, other.gameObject);
+        if (currentEnemy == null && other.GetType() == typeof(SphereCollider)) {
+            if (other.gameObject.tag == "Viper" && other.gameObject.tag != gameObject.tag) {
+                if (!other.gameObject.GetComponent<FighterStateMachine>().isFighting) {
+                    PickBattle(other.gameObject);
                 }
             }
         }
     }
+
+    void PickBattle(GameObject enemyFighter) {
+        FighterStateMachine enemyMachine = enemyFighter.GetComponent<FighterStateMachine>();
+
+        float random = Random.value;
+        if (random > 0.5f) {
+            FightEnemy(enemyFighter, new FightingState(this));
+            enemyMachine.FightEnemy(gameObject, new PatrollingState(enemyMachine));
+        }
+        else {
+            FightEnemy(enemyFighter, new PatrollingState(this));
+            enemyMachine.FightEnemy(gameObject, new FightingState(enemyMachine));
+        }
+    }
+
+    public void FightEnemy(GameObject enemy, State state) {
+        currentEnemy = enemy;
+        isFighting = true;
+        SwitchState(state);
+    }
+
 
 }

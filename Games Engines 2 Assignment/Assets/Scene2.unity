@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -716,7 +716,7 @@ MonoBehaviour:
   fighterPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
-  teamSize: 5
+  teamSize: 3
   spawnTime: 4
   formationOffset: 10
   teamsReady: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
   fighterPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
-  teamSize: 5
+  teamSize: 3
   spawnTime: 4
   formationOffset: 10
   teamsReady: 0
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   fighterPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
-  teamSize: 5
+  teamSize: 3
   spawnTime: 4
   formationOffset: 10
   teamsReady: 0
@@ -1604,7 +1604,7 @@ MonoBehaviour:
   fighterPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
-  teamSize: 5
+  teamSize: 3
   spawnTime: 4
   formationOffset: 10
   teamsReady: 0
@@ -1719,7 +1719,7 @@ MonoBehaviour:
   fighterPrefab: {fileID: 182898, guid: a5a0e4b6fda311a40a6c066844a37403, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
-  teamSize: 5
+  teamSize: 3
   spawnTime: 4
   formationOffset: 10
   teamsReady: 0
@@ -2059,7 +2059,7 @@ MonoBehaviour:
   fighterPrefab: {fileID: 188674, guid: c7140051ed5f184459fc16b6df0f5adc, type: 2}
   fighterBullet: {fileID: 155396, guid: a50846cdd625a0e4c89a276388325891, type: 2}
   numberOfTeams: 3
-  teamSize: 5
+  teamSize: 3
   spawnTime: 4
   formationOffset: 10
   teamsReady: 0

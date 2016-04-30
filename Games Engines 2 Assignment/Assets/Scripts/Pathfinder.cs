@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 public class Pathfinder {
 
-    public int voxelSize = 100;
+    public int voxelSize;
     Dictionary<Vector3, Node> openSet;
     Dictionary<Vector3, Node> closedSet;
     Vector3 start, end;
-    Collider obstacle;
+    List<Collider> obstacles;
 
     public Pathfinder(int voxelSize) {
         this.voxelSize = voxelSize;
@@ -24,12 +24,11 @@ public class Pathfinder {
         return ret;
     }
 
-    public Path FindPath(Vector3 start, Vector3 end, Collider obstacle) {
-        this.obstacle = obstacle;
+    public Path FindPath(Vector3 start, Vector3 end, List<Collider> obstacles) {
+        this.obstacles = obstacles;
         bool found = false;
         this.end = PositionToVoxel(start); // end refers to start
         this.start = PositionToVoxel(end); // start refers to end
-
         // Clear dictionaries
         openSet.Clear();
         closedSet.Clear();
@@ -245,7 +244,15 @@ public class Pathfinder {
 
     bool IsNavigable(Vector3 pos) {
         // See if a vector is inside collider
-        return (obstacle.bounds.Contains(pos));
+        bool hit = false;
+        foreach (Collider obstacle in obstacles) {
+            if (obstacle.bounds.Contains(pos)) {
+                hit = true;
+                break;
+            }
+        }
+
+        return !hit;
     }
     float heuristic(Vector3 v1, Vector3 v2) {
         return 10.0f * (Mathf.Abs(v2.x - v1.x) + Mathf.Abs(v2.y - v1.y) + Mathf.Abs(v2.z - v1.z));

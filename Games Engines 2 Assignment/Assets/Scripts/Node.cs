@@ -9,7 +9,7 @@ public class Node {
     public float hCost;
     public float fCost {
         get {
-            return gCost + fCost;
+            return gCost + hCost;
         }
     }
 

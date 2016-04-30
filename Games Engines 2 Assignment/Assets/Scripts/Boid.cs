@@ -35,15 +35,30 @@ public class Boid : MonoBehaviour {
     public Vector3 formationTarget;
 
     [Header("Pursue")]
-    public bool pursueEnabled;
+    public bool pursueEnabled = false;
     public GameObject pursueTarget;
     public Vector3 pursueTargetPos;
 
+    [Header("Path Following")]
+    public bool pathFollowingEnabled = false;
+    public Path path = null;
+
     [Header("Patrolling")]
-    public bool patrolEnabled;
+    public bool patrolEnabled = false;
     public Transform patrolTransform;
     public float patrolRadius;
     public Vector3 patrolTarget = Vector3.zero;
+
+    void OnDrawGizmos() {
+        if (path != null) {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawCube(path.waypoints[0], Vector3.one);
+            for (int i = 1; i < path.waypoints.Count; i++) {
+                Gizmos.DrawLine(path.waypoints[i - 1], path.waypoints[i]);
+                Gizmos.DrawCube(path.waypoints[i], Vector3.one);
+            }
+        }
+    }
 
     void Update() {
         force = Vector3.zero;
@@ -62,6 +77,9 @@ public class Boid : MonoBehaviour {
         }
         if (pursueEnabled && !collisionPriority) {
             force += Pursue(pursueTarget);
+        }
+        if (pathFollowingEnabled) {
+            force += FollowPath();
         }
         if (patrolEnabled && !collisionPriority) {
             force += Patrol();
@@ -86,6 +104,20 @@ public class Boid : MonoBehaviour {
     public void TurnOffAll() {
         seekEnabled = arriveEnabled = fleeEnabled =
             formationFollowingEnabled = patrolEnabled = pursueEnabled = false;
+    }
+
+    Vector3 FollowPath() {
+        float epsilon = 10.0f;
+        float dist = (transform.position - path.NextWaypoint()).magnitude;
+        if (dist < epsilon) {
+            path.AdvanceToNext();
+        }
+        if (path.reachedEnd) {
+            return Vector3.zero;
+        }
+        else {
+            return Seek(path.NextWaypoint());
+        }
     }
 
     Vector3 Formation(GameObject leader, Vector3 offset) {

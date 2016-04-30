@@ -28,6 +28,7 @@ public class LaserMover : MonoBehaviour {
             }
             if (targetTag == "Viper" || targetTag == "Raider") {
                 if (other.GetType() != typeof(SphereCollider)) {
+                    Debug.Log("Fighter hit!");
                     other.transform.root.GetComponent<FighterStateMachine>().health -= damage;
                 }
             }

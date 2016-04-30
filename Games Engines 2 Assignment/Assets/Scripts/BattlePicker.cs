@@ -15,7 +15,7 @@ public class BattlePicker : MonoBehaviour {
     }
 
     public void PickFighterBattle(GameObject fighter1, GameObject fighter2) {
-        if (!battlingFighters.Contains(fighter1) || !battlingFighters.Contains(fighter2)) {
+        if (!battlingFighters.Contains(fighter1) && !battlingFighters.Contains(fighter2)) {
             battlingFighters.Add(fighter1);
             battlingFighters.Add(fighter2);
 
@@ -42,9 +42,7 @@ public class BattlePicker : MonoBehaviour {
     }
 
     public void RemoveBattle(GameObject fighter1, GameObject fighter2) {
-        if (battlingFighters.Contains(fighter1) || battlingFighters.Contains(fighter2)) {
-            fighter1.GetComponent<FighterStateMachine>().isFighting = false;
-            fighter2.GetComponent<FighterStateMachine>().isFighting = false;
+        if (battlingFighters.Contains(fighter1) && battlingFighters.Contains(fighter2)) {
             battlingFighters.Remove(fighter1);
             battlingFighters.Remove(fighter2);
             currentBattles -= 1;
