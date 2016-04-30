@@ -16,7 +16,7 @@ public class FighterStateMachine : MonoBehaviour {
     public GameObject bulletPrefab;
     
     public Pathfinder pathfinder;
-    int voxelSize = 150;
+    public int voxelSize = 150;
 
     List<Transform> turrets;
 
@@ -78,7 +78,7 @@ public class FighterStateMachine : MonoBehaviour {
         // Check every 5 sec if the ship is destroyed
         while (health > 0) {
             // Check if the ship is attacking
-            if (attackingTarget) {
+            if (attackingTarget && currentEnemy != null) {
                 Transform turret = turrets[Random.Range(0, turrets.Count)];
                 turret.LookAt(currentEnemy.transform.position);
                 GameObject bulletCopy = (GameObject)Instantiate(bulletPrefab, turret.position, turret.rotation);
@@ -91,16 +91,6 @@ public class FighterStateMachine : MonoBehaviour {
                     EndBattle();
                 }
             }
-
-
-            //// Check if the ship is still beeing chased if it is suppossed to be
-            //if (!isCaptain && currentEnemy != null && state.Description() == "Patrolling/Defending") {
-            //    float distance = Vector3.Distance(transform.position, currentEnemy.transform.position);
-            //    if (distance > 100.0f) {
-            //        EndBattle();
-            //        SwitchState(new FormationFollowState(this));
-            //    }
-            //}
             yield return new WaitForSeconds(3);
         }
         // Respawn again 
@@ -125,21 +115,19 @@ public class FighterStateMachine : MonoBehaviour {
     }
 
     void OnDrawGizmos() {
-        if (gameObject.tag == "Raider") {
-            Gizmos.color = new Color(1, 0, 1, 0.5f);
-            Gizmos.DrawWireSphere(transform.position, 10);
-        }
-        if (gameObject.tag == "Viper") {
-            Gizmos.color = new Color(0, 1, 1, 0.5f);
-            Gizmos.DrawWireSphere(transform.position, 10);
+        if (currentEnemy != null) {
+            Gizmos.color = Color.white;
+            Gizmos.DrawLine(transform.position, currentEnemy.transform.position);
         }
     }
 
     void OnTriggerEnter(Collider other) {
-        if (currentEnemy == null && other.GetType() == typeof(SphereCollider)) {
-            if (other.gameObject.tag == "Viper" && other.gameObject.tag != gameObject.tag) {
-                if (!other.gameObject.GetComponent<FighterStateMachine>().isFighting) {
-                    PickBattle(other.gameObject);
+        if (!isFighting) {
+            if (currentEnemy == null && other.GetType() == typeof(SphereCollider)) {
+                if (other.gameObject.tag == "Viper" && other.gameObject.tag != gameObject.tag) {
+                    if (!other.gameObject.GetComponent<FighterStateMachine>().isFighting) {
+                        PickBattle(other.gameObject);
+                    }
                 }
             }
         }

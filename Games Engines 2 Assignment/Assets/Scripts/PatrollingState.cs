@@ -44,26 +44,29 @@ public class PatrollingState : State {
     }
 
     Path MakePath(Vector3 target) {
-        RaycastHit[] hits;
-        List<Collider> obstacles = new List<Collider>();
-        Vector3 toTarget = (target - owner.transform.position).normalized;
-        float dist = Vector3.Distance(owner.transform.position, target);
-        hits = Physics.RaycastAll(owner.transform.position, toTarget, dist);
+        if (owner.motherShip != null) {
+            if (!owner.motherShip.GetComponent<Collider>().bounds.Contains(owner.transform.position)) {
+                RaycastHit[] hits;
+                List<Collider> obstacles = new List<Collider>();
+                Vector3 toTarget = (target - owner.transform.position).normalized;
+                float dist = Vector3.Distance(owner.transform.position, target);
+                hits = Physics.RaycastAll(owner.transform.position, toTarget, dist);
 
-        for (int i = 0; i < hits.Length; i++) {
-            RaycastHit hit = hits[i];
-            if (hit.collider.gameObject.tag == "Pegasus") {
-                obstacles.Add(hit.collider);
+                for (int i = 0; i < hits.Length; i++) {
+                    RaycastHit hit = hits[i];
+                    if (hit.collider.gameObject.tag == "Pegasus") {
+                        obstacles.Add(hit.collider);
+                    }
+                }
+                // Check if any obstacles were found
+                if (obstacles.Count > 0 && dist > owner.voxelSize) {
+                    return owner.pathfinder.FindPath(owner.transform.position, target, obstacles);
+                }
             }
         }
-        // Check if any obstacles were found if not then return the patrol point as path
-        if (obstacles.Count > 0) {
-            return owner.pathfinder.FindPath(owner.transform.position, target, obstacles);
-        }
-        else {
-            Path path = new Path();
-            path.waypoints.Add(target);
-            return path;
-        }
+        // otherwise return the patrol point as path
+        Path path = new Path();
+        path.waypoints.Add(target);
+        return path;
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Boid : MonoBehaviour {
-    
+
     public Vector3 velocity;
     public Vector3 acceleration;
     public Vector3 force;
@@ -50,14 +50,8 @@ public class Boid : MonoBehaviour {
     public Vector3 patrolTarget = Vector3.zero;
 
     void OnDrawGizmos() {
-        if (path != null) {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawCube(path.waypoints[0], Vector3.one);
-            for (int i = 1; i < path.waypoints.Count; i++) {
-                Gizmos.DrawLine(path.waypoints[i - 1], path.waypoints[i]);
-                Gizmos.DrawCube(path.waypoints[i], Vector3.one);
-            }
-        }
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, 20);
     }
 
     void Update() {
