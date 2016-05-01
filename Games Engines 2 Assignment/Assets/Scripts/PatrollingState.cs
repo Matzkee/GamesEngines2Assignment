@@ -41,7 +41,7 @@ public class PatrollingState : State {
         else {
             patrolPoint =  owner.transform.position;
         }
-        patrolPoint.y = owner.motherShip.transform.position.y + 200 + Random.Range(0, 200);
+        patrolPoint.y = owner.motherShip.transform.position.y + 300 + Random.Range(0, 200);
 
         Path path = new Path();
         path.waypoints.Add(patrolPoint);

@@ -91,7 +91,7 @@ GameObject:
   - 65: {fileID: 6535814}
   m_Layer: 0
   m_Name: cylmftr1co#1
-  m_TagString: Untagged
+  m_TagString: Raider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -938,6 +938,7 @@ MonoBehaviour:
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
+  pathFollowingEnabled: 0
   patrolEnabled: 0
   patrolTransform: {fileID: 0}
   patrolRadius: 0

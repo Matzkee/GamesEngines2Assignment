@@ -198,7 +198,7 @@ GameObject:
   - 64: {fileID: 6415754}
   m_Layer: 0
   m_Name: colmftr1co
-  m_TagString: Untagged
+  m_TagString: Viper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,7 +247,7 @@ GameObject:
   - 4: {fileID: 465970}
   m_Layer: 0
   m_Name: skp103E
-  m_TagString: Untagged
+  m_TagString: Viper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -815,6 +815,7 @@ MonoBehaviour:
   pursueEnabled: 0
   pursueTarget: {fileID: 0}
   pursueTargetPos: {x: 0, y: 0, z: 0}
+  pathFollowingEnabled: 0
   patrolEnabled: 0
   patrolTransform: {fileID: 0}
   patrolRadius: 0
