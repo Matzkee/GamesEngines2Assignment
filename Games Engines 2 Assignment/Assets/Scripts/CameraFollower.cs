@@ -14,14 +14,46 @@ public class CameraFollower : MonoBehaviour {
     public float camRoutine = 5.0f;
     public float idleCamSwitchTime = 15.0f;
 
-	// Use this for initialization
+    public bool sceneFade = true;
+    public bool fadingEnabled = false;
+    public float fadeSpeed = 1.5f;
+    bool fading = false;
+    new GUITexture guiTexture;
+    
+    void StartScene() {
+        if (sceneFade) {
+            FadeToCLear();
+        }
+    }
+    void EndScene() {
+        if (sceneFade) {
+            FadeToBlack();
+        }
+    }
 	void Start () {
+        guiTexture = GameObject.Find("ScreenFader").GetComponent<GUITexture>();
         StartCoroutine("CameraSwitcher");
 	}
+    void Update() {
+
+    }
 	
-	// Update is called once per frame
+	// Late Update is called at end of each frame
 	void LateUpdate () {
+        if (fadingEnabled && fading) {
+            FadeToBlack();
+        }
+        else {
+            FadeToCLear();
+        }
         SetView();
+    }
+
+    void FadeToBlack() {
+        guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
+    }
+    void FadeToCLear() {
+        guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
     }
 
     IEnumerator CameraSwitcher()
@@ -32,10 +64,13 @@ public class CameraFollower : MonoBehaviour {
             // While there is nothing interesting to see
             while (idleCamera)
             {
+                fading = false;
                 idleCameras = GameObject.FindGameObjectsWithTag("Camera-spot").ToList();
                 PickNewIdleCamera();
 
                 yield return new WaitForSeconds(idleCamSwitchTime);
+                fading = true;
+                yield return new WaitForSeconds(1);
             }
 
             // Wait for a new camera behaviour

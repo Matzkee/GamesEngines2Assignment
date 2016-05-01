@@ -43,12 +43,6 @@ public class Boid : MonoBehaviour {
     public bool pathFollowingEnabled = false;
     public Path path = null;
 
-    [Header("Patrolling")]
-    public bool patrolEnabled = false;
-    public Transform patrolTransform;
-    public float patrolRadius;
-    public Vector3 patrolTarget = Vector3.zero;
-
     void Update() {
         force = Vector3.zero;
 
@@ -70,9 +64,6 @@ public class Boid : MonoBehaviour {
         if (pathFollowingEnabled) {
             force += FollowPath();
         }
-        if (patrolEnabled && !collisionPriority) {
-            force += Patrol();
-        }
 
         force = Vector3.ClampMagnitude(force, maxForce);
 
@@ -92,7 +83,7 @@ public class Boid : MonoBehaviour {
 
     public void TurnOffAll() {
         seekEnabled = arriveEnabled = fleeEnabled =
-            formationFollowingEnabled = patrolEnabled = pursueEnabled = false;
+            formationFollowingEnabled = pursueEnabled = pathFollowingEnabled = false;
     }
 
     Vector3 FollowPath() {
@@ -117,21 +108,6 @@ public class Boid : MonoBehaviour {
         else {
             return Vector3.zero;
         }
-    }
-
-    Vector3 Patrol() {
-        if (patrolTarget == Vector3.zero) {
-            patrolTarget = MakeNextWaypoint();
-        }
-        if (Vector3.Distance(patrolTarget, transform.position) < 1.0f) {
-            patrolTarget = MakeNextWaypoint();
-        }
-        return Seek(patrolTarget);
-    }
-
-    Vector3 MakeNextWaypoint() {
-        Vector3 randomPos = patrolTransform.position + (Random.insideUnitSphere * patrolRadius);
-        return randomPos;
     }
 
     Vector3 Seek(Vector3 target) {

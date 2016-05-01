@@ -14,14 +14,12 @@ public class FormationFollowState : State {
         owner.GetComponent<Boid>().formationLeader = owner.captainShip;
         owner.GetComponent<Boid>().formationOffset = owner.formationSpot;
         owner.GetComponent<Boid>().formationFollowingEnabled = true;
-        owner.GetComponent<Boid>().maxSpeed += 50;
-        owner.GetComponent<Boid>().maxForce += 50;
+        owner.GetComponent<Boid>().maxSpeed += 20;
     }
 
     public override void Exit() {
         owner.GetComponent<Boid>().formationFollowingEnabled = false;
-        owner.GetComponent<Boid>().maxSpeed -= 50;
-        owner.GetComponent<Boid>().maxForce -= 50;
+        owner.GetComponent<Boid>().maxSpeed -= 20;
     }
 
     public override void Update() {

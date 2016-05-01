@@ -82,12 +82,12 @@ public class BoidEditor :  Editor{
 
         EditorGUILayout.BeginVertical("Box");
         EditorGUILayout.BeginHorizontal();
-        boid.patrolEnabled = GUILayout.Toggle(boid.patrolEnabled, "Patrolling", EditorStyles.radioButton);
+        boid.pathFollowingEnabled = GUILayout.Toggle(boid.pathFollowingEnabled, "Path Following", EditorStyles.radioButton);
         EditorGUILayout.EndHorizontal();
-        if (boid.patrolEnabled)
+        if (boid.pathFollowingEnabled)
         {
             EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Patrolling target: " + boid.patrolTarget);
+            EditorGUILayout.LabelField("Path following target: " + boid.path.NextWaypoint());
         }
         EditorGUILayout.EndVertical();
     }

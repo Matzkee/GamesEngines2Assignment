@@ -190,6 +190,9 @@ MonoBehaviour:
   rotationSpeed: 1
   camRoutine: 5
   idleCamSwitchTime: 7
+  sceneFade: 1
+  fadingEnabled: 1
+  fadeSpeed: 1.5
 --- !u!82 &16888795
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1084,6 +1087,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 962306773}
   m_RootOrder: 0
+--- !u!1 &822569303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 822569305}
+  - 131: {fileID: 822569304}
+  m_Layer: 0
+  m_Name: ScreenFader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!131 &822569304
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822569303}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 0fbf23bda4c210c44a0fe51c9bbaecc7, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 2000
+    height: 2000
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
+--- !u!4 &822569305
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822569303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &881963579
 GameObject:
   m_ObjectHideFlags: 0
