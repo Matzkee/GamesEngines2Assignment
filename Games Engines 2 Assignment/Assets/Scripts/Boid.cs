@@ -49,11 +49,6 @@ public class Boid : MonoBehaviour {
     public float patrolRadius;
     public Vector3 patrolTarget = Vector3.zero;
 
-    void OnDrawGizmos() {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, 20);
-    }
-
     void Update() {
         force = Vector3.zero;
 

@@ -7,7 +7,7 @@ public class FighterStateMachine : MonoBehaviour {
 
     public int health = 10;
     public bool isCaptain = false;
-    public float patrolRadius = 1000.0f;
+    public float patrolRadius = 800.0f;
     public float collisionDistance = 100.0f;
     public GameObject captainShip = null;
     public Vector3 formationSpot;
@@ -15,8 +15,6 @@ public class FighterStateMachine : MonoBehaviour {
     public GameObject currentEnemy = null;
     public GameObject bulletPrefab;
     
-    public Pathfinder pathfinder;
-    public int voxelSize = 150;
 
     List<Transform> turrets;
 
@@ -26,7 +24,6 @@ public class FighterStateMachine : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        pathfinder = new Pathfinder(voxelSize);
         turrets = new List<Transform>();
         foreach (Transform child in transform.FindChild("Turrets")) {
             turrets.Add(child);
@@ -85,7 +82,7 @@ public class FighterStateMachine : MonoBehaviour {
                 bulletCopy.GetComponent<LaserMover>().targetTag = currentEnemy.tag;
             }
             // Check the status of the current battle
-            if (isFighting && currentEnemy != null) {
+            if (isFighting && currentEnemy != null && gameObject.tag != "Viper") {
                 float distance = Vector3.Distance(transform.position, currentEnemy.transform.position);
                 if (distance > 150.0f) {
                     EndBattle();
@@ -116,8 +113,12 @@ public class FighterStateMachine : MonoBehaviour {
 
     void OnDrawGizmos() {
         if (currentEnemy != null) {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, 20);
+        }
+        else {
             Gizmos.color = Color.white;
-            Gizmos.DrawLine(transform.position, currentEnemy.transform.position);
+            Gizmos.DrawWireSphere(transform.position, 20);
         }
     }
 
