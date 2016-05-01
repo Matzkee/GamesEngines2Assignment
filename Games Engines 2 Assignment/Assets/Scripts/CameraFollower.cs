@@ -25,11 +25,6 @@ public class CameraFollower : MonoBehaviour {
             FadeToCLear();
         }
     }
-    void EndScene() {
-        if (sceneFade) {
-            FadeToBlack();
-        }
-    }
 	void Start () {
         guiTexture = GameObject.Find("ScreenFader").GetComponent<GUITexture>();
         StartCoroutine("CameraSwitcher");
