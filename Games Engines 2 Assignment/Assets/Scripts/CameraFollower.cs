@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,7 +19,14 @@ public class CameraFollower : MonoBehaviour {
     public bool fadingEnabled = false;
     public float fadeSpeed = 1.5f;
     bool fading = false;
-    new GUITexture guiTexture;
+
+    bool fadingTextEnabled = false;
+    public new GUITexture guiTexture;
+    public new Text guiText;
+
+    public float displayTime = 5;
+    public List<string> displayText;
+    Queue<string> textQueue;
     
     void StartScene() {
         if (sceneFade) {
@@ -26,13 +34,16 @@ public class CameraFollower : MonoBehaviour {
         }
     }
 	void Start () {
-        guiTexture = GameObject.Find("ScreenFader").GetComponent<GUITexture>();
         StartCoroutine("CameraSwitcher");
+        StartCoroutine("TextViewer");
+        textQueue = new Queue<string>();
+        if (displayText.Count > 0) {
+            foreach (string text in displayText) {
+                textQueue.Enqueue(text);
+            }
+        }
 	}
-    void Update() {
 
-    }
-	
 	// Late Update is called at end of each frame
 	void LateUpdate () {
         if (fadingEnabled && fading) {
@@ -41,14 +52,38 @@ public class CameraFollower : MonoBehaviour {
         else {
             FadeToCLear();
         }
+        if (fadingTextEnabled) {
+            FadeInText();
+        }
+        else {
+            FadeOutText();
+        }
         SetView();
     }
 
+    void FadeInText() {
+        guiText.color = Color.Lerp(guiText.color, Color.white, fadeSpeed * Time.deltaTime);
+    }
+    void FadeOutText() {
+        guiText.color = Color.Lerp(guiText.color, Color.clear, fadeSpeed * Time.deltaTime);
+    }
     void FadeToBlack() {
         guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
     }
     void FadeToCLear() {
         guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
+    }
+
+    IEnumerator TextViewer() {
+        while (true) {
+            yield return new WaitForSeconds(2);
+            if (textQueue.Count > 0) {
+                guiText.text = textQueue.Dequeue();
+                fadingTextEnabled = true;
+            }
+            yield return new WaitForSeconds(displayTime);
+            fadingTextEnabled = false;
+        }
     }
 
     IEnumerator CameraSwitcher()
@@ -88,5 +123,9 @@ public class CameraFollower : MonoBehaviour {
     {
         current = idleCameras[Random.Range(0, idleCameras.Count)];
         transform.position = current.transform.position;
+    }
+
+    public void DisplayText(string text) {
+        textQueue.Enqueue(text);
     }
 }
