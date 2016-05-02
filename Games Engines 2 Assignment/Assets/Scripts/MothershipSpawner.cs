@@ -83,9 +83,9 @@ public class MothershipSpawner : MonoBehaviour {
 
     public void ChangePatrolShip(GameObject target) {
         foreach (Team team in teams) {
-            team.captain.GetComponent<FighterStateMachine>().motherShip = target;
+            team.captain.GetComponent<FighterStateMachine>().patrolShip = target;
             foreach (GameObject squadmate in team.squadmates) {
-                squadmate.GetComponent<FighterStateMachine>().motherShip = target;
+                squadmate.GetComponent<FighterStateMachine>().patrolShip = target;
             }
         }
     }

@@ -153,7 +153,9 @@ MonoBehaviour:
   damage: 2
   speed: 200
   targetTag: 
+  target: {fileID: 0}
   explosion: {fileID: 182406, guid: 2d8ac8ec4cbaba64bb4660d7d0d86f0f, type: 2}
+  explosion2: {fileID: 141014, guid: 985fd877c55fc2e459fb3dba8c53b1f3, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

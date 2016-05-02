@@ -8,12 +8,23 @@ public class LaserMover : MonoBehaviour {
     public float speed = 1000.0f;
     public string targetTag;
 
+    public GameObject target = null;
     public GameObject explosion;
-	
-	// Update is called once per frame
-	void Update () {
+    public GameObject explosion2;
+
+    // Update is called once per frame
+    void Update () {
         Vector3 movement = transform.position + (transform.forward * Time.deltaTime * speed);
         transform.position = movement;
+
+        if (target != null) {
+            float dist = Vector3.Distance(transform.position, target.transform.position);
+            if (dist < 10.0f) {
+                target.GetComponent<FighterStateMachine>().health -= damage;
+                Instantiate(explosion2, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+        }
 	}
 
     void Awake() {
@@ -25,12 +36,6 @@ public class LaserMover : MonoBehaviour {
             // reduce health of target tag
             if (targetTag == "Basestar" || targetTag == "Pegasus") {
                 other.transform.root.GetComponent<MothershipBrain>().health -= damage;
-            }
-            if (targetTag == "Viper" || targetTag == "Raider") {
-                if (other.GetType() != typeof(SphereCollider)) {
-                    Debug.Log("Fighter hit!");
-                    other.transform.root.GetComponent<FighterStateMachine>().health -= damage;
-                }
             }
             // destroy object
             Instantiate(explosion, transform.position, transform.rotation);

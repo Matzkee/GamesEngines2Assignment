@@ -35,13 +35,13 @@ public class PatrollingState : State {
     Path MakePath() {
         // Make the patrol point in a cyllinder above the mothership
         Vector3 patrolPoint;
-        if (owner.motherShip != null) {
-            patrolPoint = owner.motherShip.transform.position + (Random.insideUnitSphere * owner.patrolRadius);
+        if (owner.patrolShip != null) {
+            patrolPoint = owner.patrolShip.transform.position + (Random.insideUnitSphere * owner.patrolRadius);
+            patrolPoint.y = owner.patrolShip.transform.position.y + 300 + Random.Range(0, 200);
         }
         else {
             patrolPoint =  owner.transform.position;
         }
-        patrolPoint.y = owner.motherShip.transform.position.y + 300 + Random.Range(0, 200);
 
         Path path = new Path();
         path.waypoints.Add(patrolPoint);

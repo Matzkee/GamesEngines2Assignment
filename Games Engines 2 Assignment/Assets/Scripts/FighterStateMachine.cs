@@ -11,10 +11,10 @@ public class FighterStateMachine : MonoBehaviour {
     public float collisionDistance = 100.0f;
     public GameObject captainShip = null;
     public Vector3 formationSpot;
-    public GameObject motherShip = null;
+    public GameObject patrolShip = null;
+    public GameObject spawnShip = null;
     public GameObject currentEnemy = null;
     public GameObject bulletPrefab;
-    
 
     List<Transform> turrets;
 
@@ -66,9 +66,11 @@ public class FighterStateMachine : MonoBehaviour {
     }
 
     public void EndBattle() {
-        FighterStateMachine enemyMachine = currentEnemy.GetComponent<FighterStateMachine>();
+        if (currentEnemy != null) {
+            FighterStateMachine enemyMachine = currentEnemy.GetComponent<FighterStateMachine>();
+            enemyMachine.ResetFighter();
+        }
         ResetFighter();
-        enemyMachine.ResetFighter();
     }
 
     IEnumerator Fight() {
@@ -80,6 +82,7 @@ public class FighterStateMachine : MonoBehaviour {
                 turret.LookAt(currentEnemy.transform.position);
                 GameObject bulletCopy = (GameObject)Instantiate(bulletPrefab, turret.position, turret.rotation);
                 bulletCopy.GetComponent<LaserMover>().targetTag = currentEnemy.tag;
+                bulletCopy.GetComponent<LaserMover>().target = currentEnemy;
             }
             // Check the status of the current battle
             if (isFighting && currentEnemy != null && gameObject.tag != "Viper") {
@@ -88,12 +91,16 @@ public class FighterStateMachine : MonoBehaviour {
                     EndBattle();
                 }
             }
+            if (isFighting && currentEnemy == null) {
+                EndBattle();
+            }
             yield return new WaitForSeconds(3);
         }
         // Respawn again 
+        resetHealth();
         gameObject.SetActive(false);
-        if (motherShip != null) {
-            motherShip.GetComponent<MothershipSpawner>().Respawn(gameObject);
+        if (spawnShip != null) {
+            spawnShip.GetComponent<MothershipSpawner>().Respawn(gameObject);
         }
     }
 
@@ -154,5 +161,12 @@ public class FighterStateMachine : MonoBehaviour {
         SwitchState(state);
     }
 
-
+    public void resetHealth() {
+        if (isCaptain) {
+            health = 30;
+        }
+        else {
+            health = 10;
+        }
+    }
 }

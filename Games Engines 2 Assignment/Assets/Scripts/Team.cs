@@ -32,7 +32,7 @@ public class Team {
         FighterStateMachine captainMachine = captain.AddComponent<FighterStateMachine>();
         captainMachine.isCaptain = true;
         captainMachine.health = 30;
-        captainMachine.motherShip = mothership;
+        captainMachine.spawnShip = mothership;
         captainMachine.bulletPrefab = bullet;
         // set inactive for now so that mothership can begin spawning
         captain.name = "Team Captain";
@@ -41,7 +41,7 @@ public class Team {
         for (int i = 1; i < squadSize; i++) {
             GameObject squadmate = (GameObject)GameObject.Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
             FighterStateMachine squadMachine = squadmate.AddComponent<FighterStateMachine>();
-            squadMachine.motherShip = mothership;
+            squadMachine.spawnShip = mothership;
             squadMachine.formationSpot = formation[i - 1];
             squadMachine.captainShip = captain;
             squadMachine.bulletPrefab = bullet;

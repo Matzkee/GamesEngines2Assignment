@@ -37,6 +37,7 @@ public class MothershipBrain : MonoBehaviour {
             Vector3 approachPoint = enemy.transform.position - (toTarget * 1500);
             GetComponent<Boid>().arriveTargetPos = approachPoint;
             GetComponent<Boid>().arriveEnabled = true;
+            GetComponent<MothershipSpawner>().ChangePatrolShip(gameObject);
         }
         else {
             GetComponent<MothershipSpawner>().ChangePatrolShip(enemy);
