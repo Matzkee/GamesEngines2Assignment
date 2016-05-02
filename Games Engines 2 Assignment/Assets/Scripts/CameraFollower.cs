@@ -21,10 +21,10 @@ public class CameraFollower : MonoBehaviour {
     bool fading = false;
 
     bool fadingTextEnabled = false;
-    public new GUITexture guiTexture;
+    public Image guiImage;
     public new Text guiText;
 
-    public float displayTime = 5;
+    public float textDisplayTime = 5;
     public List<string> displayText;
     Queue<string> textQueue;
     
@@ -68,10 +68,10 @@ public class CameraFollower : MonoBehaviour {
         guiText.color = Color.Lerp(guiText.color, Color.clear, fadeSpeed * Time.deltaTime);
     }
     void FadeToBlack() {
-        guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
+        guiImage.color = Color.Lerp(guiImage.color, Color.black, fadeSpeed * Time.deltaTime);
     }
     void FadeToCLear() {
-        guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
+        guiImage.color = Color.Lerp(guiImage.color, Color.clear, fadeSpeed * Time.deltaTime);
     }
 
     IEnumerator TextViewer() {
@@ -81,7 +81,7 @@ public class CameraFollower : MonoBehaviour {
                 guiText.text = textQueue.Dequeue();
                 fadingTextEnabled = true;
             }
-            yield return new WaitForSeconds(displayTime);
+            yield return new WaitForSeconds(textDisplayTime);
             fadingTextEnabled = false;
         }
     }
