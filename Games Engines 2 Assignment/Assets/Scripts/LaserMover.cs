@@ -19,7 +19,7 @@ public class LaserMover : MonoBehaviour {
 
         if (target != null) {
             float dist = Vector3.Distance(transform.position, target.transform.position);
-            if (dist < 10.0f) {
+            if (dist < 4.0f) {
                 target.GetComponent<FighterStateMachine>().health -= damage;
                 Instantiate(explosion2, transform.position, transform.rotation);
                 Destroy(gameObject);
